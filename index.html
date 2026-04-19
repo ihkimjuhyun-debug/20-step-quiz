@@ -2,1012 +2,270 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>20 Questions / 스무고개</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>20 Questions</title>
 <style>
-:root {
-  --navy: #002D5E;
-  --blue: #007AFF;
-  --red:  #FF3B30;
-  --green:#34C759;
-  --orange:#FF9500;
-  --yellow:#FFD60A;
-  --bg:   #F2F2F7;
-  --card: #FFFFFF;
-  --border:#E5E5EA;
-  --gray: #8E8E93;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  background: var(--bg); color: #1C1C1E;
-  -webkit-font-smoothing: antialiased;
-}
-.app { max-width: 480px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+:root{--navy:#002D5E;--blue:#007AFF;--red:#FF3B30;--green:#34C759;--orange:#FF9500;--yellow:#FFD60A;--bg:#F2F2F7;--card:#fff;--border:#E5E5EA;--gray:#8E8E93}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;background:var(--bg);color:#1C1C1E;-webkit-font-smoothing:antialiased}
+.app{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+.screen{display:none}
+.screen.on{display:flex;flex-direction:column}
 
-/* ── 화면 전환 ── */
-.screen { display: none; }
-.screen.on { display: flex; flex-direction: column; }
+/* START */
+#ss{align-items:center;justify-content:center;min-height:100vh;padding:40px 22px;gap:22px;position:relative}
+.glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,255,.14) 0%,transparent 70%);pointer-events:none}
+.s-icon{font-size:80px;filter:drop-shadow(0 8px 24px rgba(0,122,255,.32))}
+.s-title{font-size:42px;font-weight:900;color:var(--navy);letter-spacing:-1.5px;text-align:center}
+.s-sub{font-size:15px;color:var(--gray);font-weight:600;text-align:center}
+.s-card{background:var(--card);border-radius:28px;padding:26px 22px;width:100%;max-width:360px;box-shadow:0 8px 40px rgba(0,0,0,.08);border:1px solid var(--border)}
+.card-lbl{font-size:12px;font-weight:800;color:var(--gray);text-align:center;margin-bottom:12px;letter-spacing:.5px}
+.lang-row{display:flex;gap:10px;margin-bottom:18px}
+.lbtn{flex:1;height:52px;border-radius:14px;border:1.5px solid var(--border);background:#F8F8FA;font-size:14px;font-weight:800;cursor:pointer;color:var(--gray);transition:all .15s}
+.lbtn.on{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 4px 16px rgba(0,122,255,.3)}
+.start-btn{width:100%;height:60px;border-radius:18px;background:var(--navy);color:#fff;border:none;font-size:18px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 24px rgba(0,45,94,.28)}
+.feat-box{background:var(--card);border-radius:20px;padding:18px 20px;width:100%;max-width:360px;border:1px solid var(--border);display:flex;flex-direction:column;gap:10px}
+.feat-row{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:600;color:#3A3A3C}
 
-/* ══ START ══ */
-#s-start {
-  align-items: center; justify-content: center;
-  min-height: 100vh; padding: 40px 24px; gap: 22px; position: relative;
-}
-.glow {
-  position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
-  width: 320px; height: 320px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,122,255,.14) 0%, transparent 70%);
-  pointer-events: none;
-}
-.start-icon { font-size: 78px; filter: drop-shadow(0 8px 24px rgba(0,122,255,.3)); }
-.start-title { font-size: 42px; font-weight: 900; color: var(--navy); letter-spacing: -1.5px; text-align: center; }
-.start-sub { font-size: 15px; color: var(--gray); font-weight: 600; text-align: center; }
-.card {
-  background: var(--card); border-radius: 28px; padding: 26px 22px;
-  width: 100%; max-width: 360px;
-  box-shadow: 0 8px 40px rgba(0,0,0,.08); border: 1px solid var(--border);
-  position: relative;
-}
-.card-lbl { font-size: 12px; font-weight: 800; color: var(--gray); text-align: center; margin-bottom: 12px; letter-spacing: .5px; }
-.lang-row { display: flex; gap: 10px; margin-bottom: 18px; }
-.lang-btn {
-  flex: 1; height: 52px; border-radius: 14px;
-  border: 1.5px solid var(--border); background: #F8F8FA;
-  font-size: 14px; font-weight: 800; cursor: pointer; color: var(--gray); transition: all .15s;
-}
-.lang-btn.on { background: var(--blue); color: #fff; border-color: var(--blue); box-shadow: 0 4px 16px rgba(0,122,255,.3); }
-.start-btn {
-  width: 100%; height: 60px; border-radius: 18px;
-  background: var(--navy); color: #fff; border: none;
-  font-size: 18px; font-weight: 900; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  box-shadow: 0 8px 24px rgba(0,45,94,.28);
-}
-.feat-box {
-  background: var(--card); border-radius: 20px; padding: 18px 20px;
-  width: 100%; max-width: 360px; border: 1px solid var(--border);
-  display: flex; flex-direction: column; gap: 10px; position: relative;
-}
-.feat-row { display: flex; gap: 10px; align-items: center; font-size: 14px; font-weight: 600; color: #3A3A3C; }
+/* DIAL */
+#sd{align-items:center;justify-content:center;min-height:100vh;gap:20px}
+.dial-lbl{color:var(--gray);font-weight:700;font-size:15px}
+.dial-outer{width:240px;height:280px;border-radius:28px;background:var(--card);overflow:hidden;position:relative;border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center}
+.dial-hl{position:absolute;left:10px;right:10px;top:50%;transform:translateY(-50%);height:56px;background:rgba(0,122,255,.07);border-radius:12px;pointer-events:none;z-index:2}
+.dial-track{position:absolute;width:100%;display:flex;flex-direction:column;align-items:center}
+.dial-item{height:56px;display:flex;align-items:center;justify-content:center;font-weight:900;user-select:none}
 
-/* ══ DIAL ══ */
-#s-dial { align-items: center; justify-content: center; min-height: 100vh; gap: 20px; }
-.dial-lbl { color: var(--gray); font-weight: 700; font-size: 15px; }
-.dial-outer {
-  width: 240px; height: 280px; border-radius: 28px; background: var(--card);
-  overflow: hidden; position: relative; border: 1px solid var(--border);
-  box-shadow: 0 12px 40px rgba(0,0,0,.08);
-  display: flex; align-items: center; justify-content: center;
-}
-.dial-hl {
-  position: absolute; left: 10px; right: 10px; top: 50%; transform: translateY(-50%);
-  height: 56px; background: rgba(0,122,255,.07); border-radius: 12px;
-  pointer-events: none; z-index: 2;
-}
-.dial-track { position: absolute; width: 100%; display: flex; flex-direction: column; align-items: center; }
-.dial-item { height: 56px; display: flex; align-items: center; justify-content: center; font-weight: 900; user-select: none; }
+/* THINKING */
+#st{align-items:center;justify-content:center;min-height:100vh;gap:16px;text-align:center;padding:32px}
 
-/* ══ THINKING ══ */
-#s-think { align-items: center; justify-content: center; min-height: 100vh; gap: 16px; text-align: center; padding: 32px; }
+/* TOP BAR */
+#topbar{display:none;align-items:center;justify-content:space-between;padding:13px 16px;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:.5px solid var(--border);position:sticky;top:0;z-index:100}
+.tbb{padding:8px 13px;border-radius:10px;border:none;font-size:13px;font-weight:800;cursor:pointer}
+.tbb-r{background:var(--red);color:#fff}
+.tbb-b{background:var(--blue);color:#fff}
+#cntnum{font-size:26px;font-weight:900;line-height:1;text-align:center;transition:color .3s}
+#cntlbl{font-size:9px;color:var(--gray);font-weight:700;letter-spacing:.5px;text-align:center}
 
-/* ══ TOP BAR ══ */
-#top-bar {
-  display: none; align-items: center; justify-content: space-between;
-  padding: 13px 16px; background: rgba(255,255,255,.94);
-  backdrop-filter: blur(20px); border-bottom: .5px solid var(--border);
-  position: sticky; top: 0; z-index: 100;
-}
-.tb-btn { padding: 8px 13px; border-radius: 10px; border: none; font-size: 13px; font-weight: 800; cursor: pointer; }
-.tb-red  { background: var(--red);  color: #fff; }
-.tb-blue { background: var(--blue); color: #fff; }
-#cnt-num { font-size: 26px; font-weight: 900; line-height: 1; text-align: center; transition: color .3s; }
-#cnt-lbl { font-size: 9px; color: var(--gray); font-weight: 700; letter-spacing: .5px; text-align: center; }
-
-/* ══ PLAY ══ */
-#s-play { min-height: 100vh; }
-.ans-reveal {
-  display: none; background: #FFF9E6; border: 1.5px solid var(--yellow);
-  border-radius: 14px; margin: 10px 14px 0; padding: 10px 16px;
-  align-items: center; gap: 10px; flex-direction: row;
-}
-.mys-card {
-  margin: 14px; background: var(--card); border-radius: 26px;
-  padding: 22px 20px; text-align: center;
-  box-shadow: 0 6px 28px rgba(0,0,0,.06); border: 1px solid var(--border);
-}
-.mys-word { font-size: 52px; font-weight: 900; color: var(--navy); letter-spacing: 20px; }
-.mys-sub  { font-size: 13px; color: var(--gray); font-weight: 700; margin-top: 6px; }
+/* PLAY */
+#sp{min-height:100vh}
+.ans-rev{display:none;background:#FFF9E6;border:1.5px solid var(--yellow);border-radius:14px;margin:10px 14px 0;padding:10px 16px;align-items:center;gap:10px;flex-direction:row}
+.mys-card{margin:14px;background:var(--card);border-radius:26px;padding:22px 20px;text-align:center;box-shadow:0 6px 28px rgba(0,0,0,.06);border:1px solid var(--border)}
+.mys-word{font-size:52px;font-weight:900;color:var(--navy);letter-spacing:20px}
+.mys-sub{font-size:13px;color:var(--gray);font-weight:700;margin-top:6px}
 
 /* QA */
-.qa-panel { margin: 0 14px 6px; background: var(--card); border-radius: 22px; border: 1px solid var(--border); overflow: hidden; }
-.qa-head {
-  width: 100%; padding: 13px 18px; background: none; border: none; cursor: pointer;
-  font-weight: 800; font-size: 14px; color: var(--navy);
-  display: flex; justify-content: space-between; align-items: center;
-}
-.qa-scroll { max-height: 300px; overflow-y: auto; padding: 4px 14px 14px; }
-.qa-pair { margin-bottom: 14px; }
-.q-bub {
-  background: #F2F2F7; border-radius: 16px 16px 16px 4px;
-  padding: 9px 13px; display: flex; gap: 8px; align-items: flex-start; margin-bottom: 5px;
-}
-.q-badge { background: var(--blue); color: #fff; border-radius: 7px; padding: 2px 7px; font-size: 10px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
-.q-txt { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; }
-.a-row { display: flex; align-items: flex-start; gap: 7px; margin-left: 14px; }
-.a-bub { flex: 1; border-radius: 4px 16px 16px 16px; padding: 9px 13px; font-size: 14px; font-weight: 700; line-height: 1.4; }
-.a-ok  { background: #E8F5E9; color: #2E7D32; }
-.a-err { background: #FFF0F0; color: var(--red); border: 1px solid #FFCDD2; }
-.a-loading { margin-left: 14px; background: #F2F2F7; border-radius: 4px 16px 16px 16px; padding: 9px 13px; font-size: 13px; color: var(--gray); font-weight: 600; }
-.rp-btn {
-  flex-shrink: 0; width: 34px; height: 34px; border-radius: 10px;
-  border: 1px solid var(--border); background: #F8F8FA;
-  cursor: pointer; font-size: 15px;
-  display: flex; align-items: center; justify-content: center; margin-top: 1px;
-}
-.rp-btn.on { background: #FFE5E5; border-color: var(--red); }
-.retry-btn {
-  margin-top: 6px; margin-left: 14px;
-  padding: 5px 12px; border-radius: 8px; border: none;
-  background: var(--orange); color: #fff; font-size: 12px; font-weight: 800; cursor: pointer;
-}
+.qa-panel{margin:0 14px 6px;background:var(--card);border-radius:22px;border:1px solid var(--border);overflow:hidden}
+.qa-head{width:100%;padding:13px 18px;background:none;border:none;cursor:pointer;font-weight:800;font-size:14px;color:var(--navy);display:flex;justify-content:space-between;align-items:center}
+.qa-scroll{max-height:300px;overflow-y:auto;padding:4px 14px 14px}
+.qa-pair{margin-bottom:14px}
+.q-bub{background:#F2F2F7;border-radius:16px 16px 16px 4px;padding:9px 13px;display:flex;gap:8px;align-items:flex-start;margin-bottom:5px}
+.q-badge{background:var(--blue);color:#fff;border-radius:7px;padding:2px 7px;font-size:10px;font-weight:800;flex-shrink:0;margin-top:1px}
+.q-txt{font-size:14px;font-weight:600;color:var(--navy);line-height:1.4}
+.a-row{display:flex;align-items:flex-start;gap:7px;margin-left:14px}
+.a-bub{flex:1;border-radius:4px 16px 16px 16px;padding:9px 13px;font-size:14px;font-weight:700;line-height:1.4}
+.a-ok{background:#E8F5E9;color:#2E7D32}
+.a-err{background:#FFF0F0;color:var(--red);border:1px solid #FFCDD2}
+.a-load{margin-left:14px;background:#F2F2F7;border-radius:4px 16px 16px 16px;padding:9px 13px;font-size:13px;color:var(--gray);font-weight:600}
+.rp-btn{flex-shrink:0;width:34px;height:34px;border-radius:10px;border:1px solid var(--border);background:#F8F8FA;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.rp-btn.on{background:#FFE5E5;border-color:var(--red)}
+.retry-btn{margin-top:6px;margin-left:14px;padding:5px 12px;border-radius:8px;border:none;background:var(--orange);color:#fff;font-size:12px;font-weight:800;cursor:pointer}
 
-/* ══ INPUT ══ */
-#inp-area {
-  position: sticky; bottom: 0;
-  background: rgba(242,242,247,.97); backdrop-filter: blur(20px);
-  border-top: .5px solid var(--border); padding: 10px 14px 28px; width: 100%;
-}
-.status-bar { border-radius: 10px; padding: 7px 12px; font-size: 12px; font-weight: 700; text-align: center; margin-bottom: 8px; }
-.speak-bar {
-  background: #E3F0FF; border-radius: 12px; padding: 8px 14px;
-  font-size: 13px; font-weight: 800; color: var(--blue);
-  display: none; align-items: center; gap: 8px; margin-bottom: 8px;
-}
-.speak-stop { margin-left: auto; background: var(--blue); color: #fff; border: none; border-radius: 8px; padding: 4px 10px; font-size: 12px; font-weight: 800; cursor: pointer; }
-.live-box {
-  background: #fff; border: 1.5px dashed var(--red); border-radius: 12px;
-  padding: 8px 12px; font-size: 13px; font-weight: 600; color: var(--navy);
-  min-height: 34px; display: none; margin-bottom: 8px;
-}
-.ai-bar { background: #EAF3FF; color: var(--blue); border-radius: 12px; padding: 8px 14px; font-size: 13px; font-weight: 800; text-align: center; display: none; margin-bottom: 8px; }
-.mic-btn {
-  width: 100%; height: 62px; border-radius: 20px;
-  background: var(--navy); color: #fff; border: none;
-  font-size: 15px; font-weight: 800; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  box-shadow: 0 6px 20px rgba(0,45,94,.2); transition: background .2s, box-shadow .2s;
-}
-.mic-btn.rec { background: var(--red); box-shadow: 0 6px 24px rgba(255,59,48,.45); }
-.mic-btn:disabled { opacity: .4; cursor: not-allowed; }
-.txt-row { display: flex; gap: 8px; margin-top: 8px; }
-.txt-inp {
-  flex: 1; height: 46px; border-radius: 14px;
-  border: 1.5px solid var(--border); padding: 0 14px;
-  font-size: 15px; font-weight: 600; outline: none;
-  background: #fff; color: var(--navy); font-family: inherit;
-}
-.txt-inp:focus { border-color: var(--blue); }
-.send-btn { height: 46px; padding: 0 18px; border-radius: 14px; background: var(--blue); color: #fff; border: none; font-size: 14px; font-weight: 800; cursor: pointer; }
-.send-btn:disabled { opacity: .4; }
-.hint { font-size: 11px; color: #C7C7CC; text-align: center; margin-top: 5px; font-weight: 600; }
+/* INPUT */
+#inparea{position:sticky;bottom:0;background:rgba(242,242,247,.97);backdrop-filter:blur(20px);border-top:.5px solid var(--border);padding:10px 14px 28px;width:100%}
+.statusbar{border-radius:10px;padding:7px 12px;font-size:12px;font-weight:700;text-align:center;margin-bottom:8px}
+.speak-bar{background:#E3F0FF;border-radius:12px;padding:8px 14px;font-size:13px;font-weight:800;color:var(--blue);display:none;align-items:center;gap:8px;margin-bottom:8px}
+.speak-stop{margin-left:auto;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:4px 10px;font-size:12px;font-weight:800;cursor:pointer}
+.live-box{background:#fff;border:1.5px dashed var(--red);border-radius:12px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--navy);min-height:34px;display:none;margin-bottom:8px}
+.ai-bar{background:#EAF3FF;color:var(--blue);border-radius:12px;padding:8px 14px;font-size:13px;font-weight:800;text-align:center;display:none;margin-bottom:8px}
+.mic-btn{width:100%;height:62px;border-radius:20px;background:var(--navy);color:#fff;border:none;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 20px rgba(0,45,94,.2);transition:background .2s,box-shadow .2s}
+.mic-btn.rec{background:var(--red);box-shadow:0 6px 24px rgba(255,59,48,.45)}
+.mic-btn:disabled{opacity:.4;cursor:not-allowed}
+.txt-row{display:flex;gap:8px;margin-top:8px}
+.txt-inp{flex:1;height:46px;border-radius:14px;border:1.5px solid var(--border);padding:0 14px;font-size:15px;font-weight:600;outline:none;background:#fff;color:var(--navy);font-family:inherit}
+.txt-inp:focus{border-color:var(--blue)}
+.send-btn{height:46px;padding:0 18px;border-radius:14px;background:var(--blue);color:#fff;border:none;font-size:14px;font-weight:800;cursor:pointer}
+.send-btn:disabled{opacity:.4}
+.hint{font-size:11px;color:#C7C7CC;text-align:center;margin-top:5px;font-weight:600}
 
-/* ══ END SCREENS ══ */
-#s-win, #s-lose {
-  align-items: center; justify-content: center;
-  min-height: 100vh; padding: 40px 28px; gap: 18px;
-}
-#s-win  { background: linear-gradient(155deg, #002D5E 0%, #007AFF 100%); }
-#s-lose { background: linear-gradient(155deg, #1C1C1E 0%, #3A3A3C 100%); }
-.end-icon { font-size: 88px; margin-bottom: 4px; }
-.end-title { font-size: 34px; font-weight: 900; color: #fff; text-align: center; }
-.end-sub   { color: rgba(255,255,255,.75); font-weight: 700; font-size: 15px; text-align: center; }
-.word-box  { background: rgba(255,255,255,.15); border-radius: 22px; padding: 18px 32px; text-align: center; width: 100%; max-width: 280px; }
-.word-lbl  { font-size: 12px; color: rgba(255,255,255,.5); font-weight: 800; }
-.word-val  { font-size: 40px; font-weight: 900; margin-top: 4px; }
-.stat-row  { display: flex; gap: 12px; width: 100%; max-width: 280px; }
-.stat-box  { flex: 1; background: rgba(255,255,255,.12); border-radius: 16px; padding: 14px 10px; text-align: center; }
-.stat-n    { font-size: 30px; font-weight: 900; color: #fff; display: block; }
-.stat-l    { font-size: 11px; color: rgba(255,255,255,.5); font-weight: 700; display: block; }
-.again-btn { width: 100%; max-width: 280px; height: 60px; border-radius: 20px; color: #fff; border: none; font-size: 18px; font-weight: 900; cursor: pointer; margin-top: 6px; }
+/* END */
+#sw,#sl{align-items:center;justify-content:center;min-height:100vh;padding:40px 28px;gap:18px}
+#sw{background:linear-gradient(155deg,#002D5E 0%,#007AFF 100%)}
+#sl{background:linear-gradient(155deg,#1C1C1E 0%,#3A3A3C 100%)}
+.end-icon{font-size:88px;margin-bottom:4px}
+.end-title{font-size:34px;font-weight:900;color:#fff;text-align:center}
+.end-sub{color:rgba(255,255,255,.75);font-weight:700;font-size:15px;text-align:center}
+.word-box{background:rgba(255,255,255,.15);border-radius:22px;padding:18px 32px;text-align:center;width:100%;max-width:280px}
+.word-lbl{font-size:12px;color:rgba(255,255,255,.5);font-weight:800}
+.word-val{font-size:40px;font-weight:900;margin-top:4px}
+.stat-row{display:flex;gap:12px;width:100%;max-width:280px}
+.stat-box{flex:1;background:rgba(255,255,255,.12);border-radius:16px;padding:14px 10px;text-align:center}
+.stn{font-size:30px;font-weight:900;color:#fff;display:block}
+.stl{font-size:11px;color:rgba(255,255,255,.5);font-weight:700;display:block}
+.again-btn{width:100%;max-width:280px;height:60px;border-radius:20px;color:#fff;border:none;font-size:18px;font-weight:900;cursor:pointer;margin-top:6px}
 </style>
 </head>
 <body>
 <div class="app">
 
-<!-- ══ START ══ -->
-<div id="s-start" class="screen on">
+<!-- START -->
+<div id="ss" class="screen on">
   <div class="glow"></div>
-  <div class="start-icon">🔮</div>
-  <div>
-    <div class="start-title" id="t-title">20 Questions</div>
-    <div class="start-sub"   id="t-sub">AI Word Guessing Game</div>
-  </div>
-  <div class="card">
+  <div class="s-icon">🔮</div>
+  <div><div class="s-title" id="t0">20 Questions</div><div class="s-sub" id="t1">AI Word Guessing Game</div></div>
+  <div class="s-card">
     <div class="card-lbl">CHOOSE LANGUAGE · 언어 선택</div>
     <div class="lang-row">
-      <button class="lang-btn on" id="btn-en" onclick="setLang('en')">🇺🇸 English</button>
-      <button class="lang-btn"    id="btn-ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+      <button class="lbtn on" id="b-en" onclick="setLang('en')">🇺🇸 English</button>
+      <button class="lbtn"    id="b-ko" onclick="setLang('ko')">🇰🇷 한국어</button>
     </div>
-    <button class="start-btn" onclick="startGame()">
-      <span style="font-size:22px">▶</span>
-      <span id="t-start-btn">Start Game</span>
-    </button>
+    <button class="start-btn" onclick="startGame()"><span style="font-size:22px">▶</span><span id="t2">Start Game</span></button>
   </div>
   <div class="feat-box">
-    <div class="feat-row"><span>🎙</span><span id="t-f1">Voice or text input</span></div>
-    <div class="feat-row"><span>🔊</span><span id="t-f2">AI answers spoken aloud</span></div>
-    <div class="feat-row"><span>🔄</span><span id="t-f3">Replay any answer</span></div>
-    <div class="feat-row"><span>🏆</span><span id="t-f4">Guess within 20 questions!</span></div>
+    <div class="feat-row"><span>🎙</span><span id="t3">Voice or text input</span></div>
+    <div class="feat-row"><span>🔊</span><span id="t4">AI answers spoken aloud</span></div>
+    <div class="feat-row"><span>🔄</span><span id="t5">Replay any answer</span></div>
+    <div class="feat-row"><span>🏆</span><span id="t6">Guess within 20 questions!</span></div>
   </div>
 </div>
 
-<!-- ══ DIAL ══ -->
-<div id="s-dial" class="screen">
-  <p class="dial-lbl" id="t-dial-lbl">AI is choosing a word…</p>
-  <div class="dial-outer">
-    <div class="dial-hl"></div>
-    <div class="dial-track" id="dial-track"></div>
-  </div>
+<!-- DIAL -->
+<div id="sd" class="screen">
+  <p class="dial-lbl" id="t7">AI is choosing a word…</p>
+  <div class="dial-outer"><div class="dial-hl"></div><div class="dial-track" id="dtk"></div></div>
 </div>
 
-<!-- ══ THINKING ══ -->
-<div id="s-think" class="screen">
-  <div style="font-size:72px" id="think-icon">🤔</div>
-  <h2 style="font-size:28px;font-weight:900;color:var(--navy)" id="t-think">Thinking<span id="dots">...</span></h2>
-  <p  style="color:var(--gray);font-weight:600;font-size:14px" id="t-think-sub">AI is locking in the secret word</p>
+<!-- THINKING -->
+<div id="st" class="screen">
+  <div style="font-size:72px">🤔</div>
+  <h2 style="font-size:28px;font-weight:900;color:var(--navy)" id="t8">Thinking<span id="dots">...</span></h2>
+  <p  style="color:var(--gray);font-weight:600;font-size:14px" id="t9">AI is locking in the secret word</p>
 </div>
 
-<!-- ══ TOP BAR ══ -->
-<div id="top-bar">
-  <button class="tb-btn tb-red"  id="t-end"      onclick="confirmEnd()">End</button>
-  <div>
-    <div id="cnt-num" style="color:var(--green)">0<span style="font-size:12px;color:var(--gray);font-weight:700">/20</span></div>
-    <div id="cnt-lbl">QUESTIONS</div>
-  </div>
-  <button class="tb-btn tb-blue" id="t-show-ans" onclick="toggleReveal()">Show Answer</button>
+<!-- TOP BAR -->
+<div id="topbar">
+  <button class="tbb tbb-r" id="ta" onclick="confirmEnd()">End</button>
+  <div><div id="cntnum" style="color:var(--green)">0<span style="font-size:12px;color:var(--gray);font-weight:700">/20</span></div><div id="cntlbl">QUESTIONS</div></div>
+  <button class="tbb tbb-b" id="tb" onclick="toggleReveal()">Show Answer</button>
 </div>
 
-<!-- ══ PLAY ══ -->
-<div id="s-play" class="screen">
-  <!-- 정답 힌트 -->
-  <div class="ans-reveal" id="ans-reveal">
-    <span style="font-size:12px;font-weight:800;color:var(--gray)" id="t-ans-lbl">Answer:</span>
-    <span style="font-size:22px;font-weight:900;color:var(--red)" id="ans-word"></span>
+<!-- PLAY -->
+<div id="sp" class="screen">
+  <div class="ans-rev" id="ansrev"><span style="font-size:12px;font-weight:800;color:var(--gray)" id="tc">Answer:</span><span style="font-size:22px;font-weight:900;color:var(--red)" id="answord"></span></div>
+  <div class="mys-card"><div class="mys-word">???</div><div class="mys-sub" id="td">What's the secret word?</div></div>
+  <div class="qa-panel" id="qap" style="display:none">
+    <button class="qa-head" onclick="toggleQA()"><span id="qatitle">💬 Q&amp;A (0)</span><span id="qaicon">▲</span></button>
+    <div class="qa-scroll" id="qalist"></div>
   </div>
-
-  <!-- 미스터리 카드 -->
-  <div class="mys-card">
-    <div class="mys-word">???</div>
-    <div class="mys-sub" id="t-mys-sub">What's the secret word?</div>
-  </div>
-
-  <!-- QA 패널 -->
-  <div class="qa-panel" id="qa-panel" style="display:none">
-    <button class="qa-head" onclick="toggleQA()">
-      <span id="qa-title">💬 Q&amp;A History (0)</span>
-      <span id="qa-icon">▲</span>
-    </button>
-    <div class="qa-scroll" id="qa-list"></div>
-  </div>
-
-  <!-- 입력 -->
-  <div id="inp-area">
-    <div id="status-bar" class="status-bar" style="background:#F2F2F7;color:var(--gray)">Checking microphone…</div>
-    <div class="speak-bar" id="speak-bar">
-      <span>🔊</span>
-      <span id="t-speak">Speaking…</span>
-      <button class="speak-stop" onclick="stopTTS()" id="t-stop-tts">⏹ Stop</button>
-    </div>
-    <div class="live-box" id="live-box">
-      <span style="font-size:10px;color:var(--red);font-weight:800;margin-right:6px">● LIVE</span>
-      <span id="live-txt"></span>
-    </div>
-    <div class="ai-bar" id="ai-bar">AI thinking…</div>
-    <button class="mic-btn" id="mic-btn" onclick="toggleMic()">
-      <span style="font-size:24px" id="mic-icon">🎙</span>
-      <span id="mic-txt">Ask a Question (Voice)</span>
-    </button>
+  <div id="inparea">
+    <div id="stbar" class="statusbar" style="background:#F2F2F7;color:var(--gray)">Checking microphone…</div>
+    <div class="speak-bar" id="spkbar"><span>🔊</span><span id="te">Speaking…</span><button class="speak-stop" onclick="stopTTS()" id="tf">⏹ Stop</button></div>
+    <div class="live-box" id="livebox"><span style="font-size:10px;color:var(--red);font-weight:800;margin-right:6px">● LIVE</span><span id="livetxt"></span></div>
+    <div class="ai-bar" id="aibar">AI thinking…</div>
+    <button class="mic-btn" id="micbtn" onclick="toggleMic()"><span style="font-size:24px" id="micicon">🎙</span><span id="mictxt">Ask a Question (Voice)</span></button>
     <div class="txt-row">
-      <input class="txt-inp" id="txt-inp"
-             placeholder="Or type your question here…"
-             onkeydown="if(event.key==='Enter')sendText()">
-      <button class="send-btn" id="send-btn" onclick="sendText()">Send</button>
+      <input class="txt-inp" id="txti" placeholder="Or type your question here…" onkeydown="if(event.key==='Enter')sendText()">
+      <button class="send-btn" id="sendbtn" onclick="sendText()">Send</button>
     </div>
-    <p class="hint" id="t-hint">e.g. Is it an animal? · Can you eat it? · Is it a person?</p>
+    <p class="hint" id="tg">e.g. Is it an animal? · Can you eat it? · Is it a person?</p>
   </div>
 </div>
 
-<!-- ══ WIN ══ -->
-<div id="s-win" class="screen">
+<!-- WIN -->
+<div id="sw" class="screen">
   <div class="end-icon" style="filter:drop-shadow(0 8px 24px rgba(0,0,0,.3))">🎉</div>
-  <h1 class="end-title"  id="t-win-t">Correct! 🎉</h1>
-  <p  class="end-sub"    id="t-win-s">You guessed it!</p>
-  <div class="word-box">
-    <div class="word-lbl" id="t-win-al">Answer:</div>
-    <div class="word-val" style="color:var(--yellow)" id="win-word"></div>
-  </div>
+  <h1 class="end-title" id="th">Correct! 🎉</h1><p class="end-sub" id="ti">You guessed it!</p>
+  <div class="word-box"><div class="word-lbl" id="tj">Answer:</div><div class="word-val" style="color:var(--yellow)" id="winword"></div></div>
   <div class="stat-row">
-    <div class="stat-box"><span class="stat-n" id="st-used">0</span><span class="stat-l" id="t-used">Used</span></div>
-    <div class="stat-box"><span class="stat-n" id="st-saved">0</span><span class="stat-l" id="t-saved">Saved</span></div>
+    <div class="stat-box"><span class="stn" id="stused">0</span><span class="stl" id="tk">Used</span></div>
+    <div class="stat-box"><span class="stn" id="stsaved">0</span><span class="stl" id="tl">Saved</span></div>
   </div>
-  <button class="again-btn" style="background:var(--green)" onclick="resetGame()" id="t-again1">Play Again</button>
+  <button class="again-btn" style="background:var(--green)" onclick="resetGame()" id="tm">Play Again</button>
 </div>
 
-<!-- ══ LOSE ══ -->
-<div id="s-lose" class="screen">
+<!-- LOSE -->
+<div id="sl" class="screen">
   <div class="end-icon">😢</div>
-  <h1 class="end-title"  id="t-lose-t">Game Over! 😢</h1>
-  <p  class="end-sub"    id="t-lose-s">You used all 20 questions.</p>
-  <div class="word-box" style="background:rgba(255,255,255,.08)">
-    <div class="word-lbl" style="color:rgba(255,255,255,.4)" id="t-lose-al">Answer:</div>
-    <div class="word-val" style="color:var(--red)" id="lose-word"></div>
-  </div>
-  <button class="again-btn" style="background:var(--blue)" onclick="resetGame()" id="t-again2">Play Again</button>
+  <h1 class="end-title" id="tn">Game Over! 😢</h1><p class="end-sub" id="to">You used all 20 questions.</p>
+  <div class="word-box" style="background:rgba(255,255,255,.08)"><div class="word-lbl" style="color:rgba(255,255,255,.4)" id="tp">Answer:</div><div class="word-val" style="color:var(--red)" id="loseword"></div></div>
+  <button class="again-btn" style="background:var(--blue)" onclick="resetGame()" id="tq">Play Again</button>
 </div>
 
-</div><!-- .app -->
+</div>
 <script>
-/* ════════════════════════════════════════════
-   STATE
-════════════════════════════════════════════ */
-let lang = 'en';
-let secretWord = '', secretCategory = '';
-let questionCount = 0;
-let qaHistory   = [];
-let isAnswering = false;
-let showReveal  = false;
-let showQA      = true;
+/* ── STATE ── */
+let lang='en', word='', cat='', qcount=0, qa=[], busy=false, revealOn=false, qaOpen=true;
+let ttsOn=false, ttsIdx=null;
+let rec=null, sttSt='idle', liveStr=''; // idle|starting|listening|stopping
+let dialTmr=null;
 
-/* ════════════════════════════════════════════
-   TTS STATE
-════════════════════════════════════════════ */
-let ttsOn  = false;
-let ttsIdx = null;
-
-/* ════════════════════════════════════════════
-   STT STATE  ← 핵심 버그 수정
-   싱글턴 + 상태 머신으로 충돌 완전 제거
-════════════════════════════════════════════ */
-let recInst  = null;                 // 전역 단일 인스턴스
-let sttState = 'idle';               // idle | starting | listening | stopping
-let liveTxt  = '';
-
-/* ════════════════════════════════════════════
-   TRANSLATIONS
-════════════════════════════════════════════ */
-const TX = {
-  en: {
-    title:'20 Questions', sub:'AI Word Guessing Game', startBtn:'Start Game',
-    f1:'Voice or text input', f2:'AI answers spoken aloud',
-    f3:'Replay any answer',   f4:'Guess within 20 questions!',
-    dialLbl:'AI is choosing a word…',
-    thinkTxt:'Thinking', thinkSub:'AI is locking in the secret word',
-    wordReady:'Word Ready!', wordReadySub:'Start asking your questions!',
-    endBtn:'End', showAns:'Show Answer', ansLbl:'Answer:', cntLbl:'QUESTIONS',
-    mysSub:"What's the secret word?",
-    micCheck:'Checking microphone…',
-    micReady:'✅ Microphone ready',
-    micDenied:'🚫 Mic permission denied — type below',
-    micNoDevice:'🎙 No microphone found — type below',
-    micNoSupport:'⚠️ Voice not supported (use Chrome) — type below',
-    micFileProto:'⚠️ Need http://localhost for mic — type below',
-    micBtnTxt:'Ask a Question (Voice)',
-    micListening:'🔴 Listening… tap to stop',
-    speakTxt:'🔊 Speaking…', stopTts:'⏹ Stop',
-    aiBarTxt:'AI thinking…',
-    placeholder:'Or type your question here…', sendTxt:'Send',
-    hintTxt:'e.g. Is it an animal? · Can you eat it? · Is it a person?',
-    qaTitle:'💬 Q&A History',
-    retryTxt:'Retry',
-    winT:'Correct! 🎉', winS:'You guessed it!',
-    ansLbl2:'Answer:', usedLbl:'Questions Used', savedLbl:'Saved', playAgain:'Play Again',
-    loseT:'Game Over! 😢', loseS:'You used all 20 questions.',
-  },
-  ko: {
-    title:'스무고개', sub:'AI와 함께하는 단어 맞추기', startBtn:'게임 시작',
-    f1:'음성 또는 텍스트로 질문', f2:'AI 답변은 영어 음성으로',
-    f3:'다시 듣기 버튼 제공',    f4:'20번 안에 맞춰보세요!',
-    dialLbl:'AI가 단어를 고르는 중…',
-    thinkTxt:'생각중', thinkSub:'AI가 단어를 정하고 있어요',
-    wordReady:'단어 생각 완료!', wordReadySub:'이제 질문을 시작하세요!',
-    endBtn:'종료', showAns:'정답 보기', ansLbl:'정답:', cntLbl:'질문 횟수',
-    mysSub:'이 단어를 맞춰보세요!',
-    micCheck:'마이크 확인 중…',
-    micReady:'✅ 마이크 준비 완료',
-    micDenied:'🚫 마이크 권한 거부 — 텍스트 입력하세요',
-    micNoDevice:'🎙 마이크 없음 — 텍스트 입력하세요',
-    micNoSupport:'⚠️ 이 브라우저 미지원 (Chrome 권장)',
-    micFileProto:'⚠️ 마이크는 localhost에서만 동작',
-    micBtnTxt:'🎙 질문하기 (음성)',
-    micListening:'🔴 듣는 중… 탭하여 중지',
-    speakTxt:'🔊 음성 재생 중', stopTts:'⏹ 정지',
-    aiBarTxt:'AI 답변 중…',
-    placeholder:'또는 여기에 질문을 입력…', sendTxt:'전송',
-    hintTxt:'예: Is it an animal? · Can you eat it? · Is it famous?',
-    qaTitle:'💬 질문 기록',
-    retryTxt:'재시도',
-    winT:'정답입니다! 🎉', winS:'축하합니다! 단어를 맞추셨어요!',
-    ansLbl2:'정답:', usedLbl:'사용한 질문', savedLbl:'남은 질문', playAgain:'다시 하기',
-    loseT:'아쉽네요! 😢', loseS:'20개 질문을 모두 사용했습니다.',
-  }
+/* ── TRANSLATIONS ── */
+const TX={
+  en:{t0:'20 Questions',t1:'AI Word Guessing Game',t2:'Start Game',t3:'Voice or text input',t4:'AI answers spoken aloud',t5:'Replay any answer',t6:'Guess within 20 questions!',t7:'AI is choosing a word…',t8:'Thinking',t9:'AI is locking in the secret word',wordReady:'Word Ready!',wordReadySub:'Start asking questions!',ta:'End',tb:'Show Answer',tc:'Answer:',td:"What's the secret word?",te:'🔊 Speaking…',tf:'⏹ Stop',tg:'e.g. Is it an animal? · Can you eat it? · Is it a person?',mcCheck:'Checking microphone…',mcReady:'✅ Microphone ready',mcDenied:'🚫 Mic denied — type below',mcNoDevice:'🎙 No mic — type below',mcNoSupport:'⚠️ Voice not supported (Chrome) — type below',mcFile:'⚠️ Need http://localhost for mic — type below',mcBtn:'Ask a Question (Voice)',mcRec:'🔴 Listening… tap to stop',aiBarTxt:'AI thinking…',placeholder:'Or type your question here…',sendTxt:'Send',hintTxt:'e.g. Is it an animal? · Can you eat it? · Is it a person?',retryTxt:'Retry',th:'Correct! 🎉',ti:'You guessed it!',tj:'Answer:',tk:'Questions Used',tl:'Saved',tm:'Play Again',tn:'Game Over! 😢',to:'You used all 20 questions.',tp:'Answer:',tq:'Play Again',cntLbl:'QUESTIONS'},
+  ko:{t0:'스무고개',t1:'AI와 함께하는 단어 맞추기',t2:'게임 시작',t3:'음성 또는 텍스트로 질문',t4:'AI 답변은 영어 음성으로',t5:'다시 듣기 버튼 제공',t6:'20번 안에 맞춰보세요!',t7:'AI가 단어를 고르는 중…',t8:'생각중',t9:'AI가 단어를 정하고 있어요',wordReady:'단어 생각 완료!',wordReadySub:'이제 질문을 시작하세요!',ta:'종료',tb:'정답 보기',tc:'정답:',td:'이 단어를 맞춰보세요!',te:'🔊 음성 재생 중',tf:'⏹ 정지',tg:'예: Is it an animal? · Can you eat it? · Is it famous?',mcCheck:'마이크 확인 중…',mcReady:'✅ 마이크 준비 완료',mcDenied:'🚫 권한 거부 — 텍스트 입력하세요',mcNoDevice:'🎙 마이크 없음 — 텍스트 입력하세요',mcNoSupport:'⚠️ 이 브라우저 미지원 (Chrome 사용)',mcFile:'⚠️ 마이크는 localhost에서만 동작',mcBtn:'🎙 질문하기 (음성)',mcRec:'🔴 듣는 중… 탭하여 중지',aiBarTxt:'AI 답변 중…',placeholder:'또는 여기에 질문을 입력…',sendTxt:'전송',hintTxt:'예: Is it an animal? · Can you eat it? · Is it famous?',retryTxt:'재시도',th:'정답입니다! 🎉',ti:'축하합니다! 맞추셨어요!',tj:'정답:',tk:'사용한 질문',tl:'남은 질문',tm:'다시 하기',tn:'아쉽네요! 😢',to:'20개 질문을 모두 사용했습니다.',tp:'정답:',tq:'다시 하기',cntLbl:'질문 횟수'}
 };
-const T = k => (TX[lang]||TX.en)[k] || TX.en[k] || k;
-
-/* ════════════════════════════════════════════
-   SCREEN SWITCH
-════════════════════════════════════════════ */
-function show(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-}
-
-/* ════════════════════════════════════════════
-   LANG
-════════════════════════════════════════════ */
-function setLang(l) {
-  lang = l;
-  document.getElementById('btn-en').classList.toggle('on', l==='en');
-  document.getElementById('btn-ko').classList.toggle('on', l==='ko');
-  applyStartTx();
-}
-function applyStartTx() {
-  document.getElementById('t-title').textContent     = T('title');
-  document.getElementById('t-sub').textContent       = T('sub');
-  document.getElementById('t-start-btn').textContent = T('startBtn');
-  ['f1','f2','f3','f4'].forEach(k => document.getElementById('t-'+k).textContent = T(k));
-}
-function applyPlayTx() {
-  document.getElementById('t-end').textContent      = T('endBtn');
-  document.getElementById('t-show-ans').textContent = T('showAns');
-  document.getElementById('cnt-lbl').textContent    = T('cntLbl');
-  document.getElementById('t-mys-sub').textContent  = T('mysSub');
-  document.getElementById('mic-txt').textContent    = T('micBtnTxt');
-  document.getElementById('txt-inp').placeholder    = T('placeholder');
-  document.getElementById('send-btn').textContent   = T('sendTxt');
-  document.getElementById('t-hint').textContent     = T('hintTxt');
-  document.getElementById('ai-bar').textContent     = T('aiBarTxt');
-  document.getElementById('t-speak').textContent    = T('speakTxt');
-  document.getElementById('t-stop-tts').textContent = T('stopTts');
-}
-
-/* ════════════════════════════════════════════
-   TTS  — Web Speech Synthesis (API키 불필요)
-   ✅ 영어 목소리 자동 선택
-   ✅ STT와 상호 배타 (피드백 루프 방지)
-════════════════════════════════════════════ */
-(function initVoices() {
-  if (!('speechSynthesis' in window)) return;
-  speechSynthesis.getVoices();
-  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
-})();
-
-function getEngVoice() {
-  const voices = speechSynthesis.getVoices();
-  const want = ['Samantha','Karen','Moira','Google US English','Alex','Daniel','Victoria'];
-  return voices.find(v => want.some(w => v.name.includes(w)) && v.lang.startsWith('en'))
-      || voices.find(v => v.lang.startsWith('en-US'))
-      || voices.find(v => v.lang.startsWith('en'))
-      || null;
-}
-
-function tts(text, rate=0.9) {
-  if (!('speechSynthesis' in window)) return;
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US'; u.rate = rate; u.pitch = 1.05; u.volume = 1;
-  const v = getEngVoice(); if (v) u.voice = v;
-  u.onend = u.onerror = () => { ttsOn = false; ttsIdx = null; updateSpeakBar(); };
-  ttsOn = true;
-  speechSynthesis.speak(u);
-}
-
-function stopTTS() {
-  speechSynthesis.cancel();
-  ttsOn = false; ttsIdx = null;
-  updateSpeakBar();
-}
-
-function updateSpeakBar() {
-  document.getElementById('speak-bar').style.display = ttsOn ? 'flex' : 'none';
-  document.querySelectorAll('.rp-btn').forEach((btn, i) => {
-    const playing = ttsOn && i === ttsIdx;
-    btn.classList.toggle('on', playing);
-    btn.textContent = playing ? '⏹' : '🔊';
-  });
-}
-
-function playAnswer(text, idx) {
-  if (ttsOn && ttsIdx === idx) { stopTTS(); return; }
-  stopTTS();
-  ttsIdx = idx; ttsOn = true;
-  updateSpeakBar();
-  tts(text);
-}
-
-/* ════════════════════════════════════════════
-   MIC DIAGNOSIS
-════════════════════════════════════════════ */
-let micStatus = 'checking';
-
-async function diagnoseMic() {
-  setMicStatus('checking');
-  if (location.protocol === 'file:')        { setMicStatus('file_proto'); return; }
-  if (!window.SpeechRecognition && !window.webkitSpeechRecognition)
-                                             { setMicStatus('no_support'); return; }
-  if (!navigator.mediaDevices?.getUserMedia){ setMicStatus('no_support'); return; }
-  try {
-    const s = await navigator.mediaDevices.getUserMedia({ audio: true });
-    s.getTracks().forEach(t => t.stop());
-    setMicStatus('ready');
-  } catch(e) {
-    const n = e.name || '';
-    setMicStatus(
-      n.includes('NotAllowed') || n.includes('PermissionDenied') ? 'denied'
-      : n.includes('NotFound') ? 'no_device'
-      : 'no_support'
-    );
-  }
-}
-
-function setMicStatus(s) {
-  micStatus = s;
-  const bar = document.getElementById('status-bar');
-  const btn = document.getElementById('mic-btn');
-  const MAP = {
-    checking:   ['#F2F2F7','#8E8E93','micCheck'],
-    ready:      ['#E8F5E9','#2E7D32','micReady'],
-    denied:     ['#FFF0F0','#FF3B30','micDenied'],
-    no_device:  ['#FFF0F0','#FF3B30','micNoDevice'],
-    no_support: ['#FFF9E6','#FF9500','micNoSupport'],
-    file_proto: ['#FFF9E6','#FF9500','micFileProto'],
-  };
-  const [bg, col, key] = MAP[s] || MAP.checking;
-  bar.style.background = bg; bar.style.color = col; bar.textContent = T(key);
-  btn.disabled = ['no_support','file_proto'].includes(s);
-}
-
-/* ════════════════════════════════════════════
-   STT — 싱글턴 + 상태 머신
-   ────────────────────────────────────────────
-   이전 버그:
-   ① 버튼마다 new SR() → 이전 인스턴스와 충돌
-   ② TTS 재생 중 마이크 켜짐 → 스피커 소리 인식
-   ③ onresult에서 즉시 handleQuestion → 중복 호출
-   ④ 오류 후 인스턴스 재사용 불가 (Chrome)
-   
-   해결:
-   ① 전역 recInst 하나만 유지
-   ② TTS 중이면 먼저 정지, 200ms 딜레이 후 STT
-   ③ onend에서만 handleQuestion 호출
-   ④ onend에서 recInst = null 초기화
-════════════════════════════════════════════ */
-function toggleMic() {
-  if (['no_support','file_proto'].includes(micStatus)) return;
-  if (isAnswering) return;
-
-  if (sttState === 'listening' || sttState === 'starting') {
-    // 이미 켜져 있으면 → 중지
-    sttState = 'stopping';
-    try { recInst && recInst.stop(); } catch(e){}
-    return;
-  }
-  if (sttState !== 'idle') return; // 전환 중 중복 차단
-
-  // TTS와 상호 배타
-  if (ttsOn) { stopTTS(); setTimeout(_startSTT, 200); }
-  else _startSTT();
-}
-
-function _startSTT() {
-  if (sttState !== 'idle') return;
-  sttState = 'starting';
-  liveTxt = '';
-
-  // 기존 인스턴스 완전 정리
-  if (recInst) {
-    recInst.onstart = recInst.onresult = recInst.onerror = recInst.onend = null;
-    try { recInst.abort(); } catch(e){}
-    recInst = null;
-  }
-
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { sttState = 'idle'; setMicStatus('no_support'); return; }
-
-  const r = new SR();
-  r.lang = lang === 'ko' ? 'ko-KR' : 'en-US';
-  r.continuous = false;
-  r.interimResults = true;
-  r.maxAlternatives = 1;
-
-  r.onstart = () => {
-    sttState = 'listening';
-    document.getElementById('mic-btn').classList.add('rec');
-    document.getElementById('mic-txt').textContent  = T('micListening');
-    document.getElementById('mic-icon').textContent = '⏹';
-  };
-
-  r.onresult = (e) => {
-    let final = '', interim = '';
-    for (let i = e.resultIndex; i < e.results.length; i++) {
-      if (e.results[i].isFinal) final   += e.results[i][0].transcript;
-      else                       interim += e.results[i][0].transcript;
-    }
-    liveTxt = final || interim;
-    const lb = document.getElementById('live-box');
-    document.getElementById('live-txt').textContent = liveTxt;
-    lb.style.display = liveTxt ? 'block' : 'none';
-  };
-
-  r.onerror = (e) => {
-    if (e.error === 'not-allowed') setMicStatus('denied');
-    // 'no-speech', 'aborted' 는 정상 케이스 → 무시
-    // onend가 항상 뒤따르므로 여기서 상태 변경 안 함
-  };
-
-  r.onend = () => {
-    sttState = 'idle';
-    recInst  = null;
-    _resetMicBtn();
-
-    const captured = liveTxt.trim();
-    document.getElementById('live-box').style.display = 'none';
-    document.getElementById('live-txt').textContent   = '';
-    liveTxt = '';
-
-    // onend에서 딱 한 번만 질문 전달
-    if (captured && !isAnswering && questionCount < 20) {
-      setTimeout(() => handleQuestion(captured), 150);
-    }
-  };
-
-  recInst = r;
-  try { r.start(); }
-  catch(e) { sttState = 'idle'; recInst = null; _resetMicBtn(); }
-}
-
-function _resetMicBtn() {
-  document.getElementById('mic-btn').classList.remove('rec');
-  document.getElementById('mic-txt').textContent  = T('micBtnTxt');
-  document.getElementById('mic-icon').textContent = '🎙';
-}
-
-/* ════════════════════════════════════════════
-   DIAL
-════════════════════════════════════════════ */
-const DIAL_CHARS = ['???','◆◆◆','▲▲▲','●●●','■■■','★★★','◇◇◇'];
-let dialTimer = null;
-
-function runDial() {
-  const track = document.getElementById('dial-track');
-  let f = 0;
-  dialTimer = setInterval(() => {
-    f++;
-    track.innerHTML = '';
-    for (let i = 0; i < 5; i++) {
-      const d   = document.createElement('div');
-      const mid = i === 2;
-      d.className = 'dial-item';
-      d.style.cssText = `
-        font-size:${mid?'30px':'18px'};
-        color:${mid?'var(--blue)':'var(--navy)'};
-        opacity:${mid?1:0.2+i*0.08};
-        letter-spacing:6px;
-      `;
-      d.textContent = DIAL_CHARS[(f+i) % DIAL_CHARS.length];
-      track.appendChild(d);
-    }
-  }, 80);
-}
-
-/* ════════════════════════════════════════════
-   COUNTER
-════════════════════════════════════════════ */
-function updateCounter() {
-  const p   = questionCount / 20;
-  const col = p < .5 ? 'var(--green)' : p < .75 ? 'var(--orange)' : 'var(--red)';
-  document.getElementById('cnt-num').innerHTML =
-    `${questionCount}<span style="font-size:12px;color:var(--gray);font-weight:700">/20</span>`;
-  document.getElementById('cnt-num').style.color = col;
-}
-
-/* ════════════════════════════════════════════
-   GAME START
-════════════════════════════════════════════ */
-async function startGame() {
-  show('s-dial');
-  document.getElementById('top-bar').style.display = 'none';
-  document.getElementById('t-dial-lbl').textContent = T('dialLbl');
-  runDial();
-
-  await sleep(3200);
-  clearInterval(dialTimer);
-
-  // 생각 화면
-  show('s-think');
-  document.getElementById('t-think').innerHTML =
-    T('thinkTxt') + '<span id="dots">...</span>';
-  document.getElementById('t-think-sub').textContent = T('thinkSub');
-
-  let d = 0;
-  const dotsTimer = setInterval(() => {
-    d = (d+1) % 4;
-    const el = document.getElementById('dots');
-    if (el) el.textContent = '.'.repeat(d+1);
-  }, 400);
-
-  // 단어 가져오기
-  try {
-    const data = await post('/api/get-word', { lang });
-    secretWord = data.word; secretCategory = data.category;
-  } catch(e) {
-    clearInterval(dotsTimer);
-    alert('단어 생성 실패: ' + e.message);
-    show('s-start'); return;
-  }
-
-  clearInterval(dotsTimer);
-
-  // 완료 표시
-  document.getElementById('s-think').innerHTML = `
-    <div style="font-size:72px;margin-bottom:12px">✅</div>
-    <h2 style="font-size:26px;font-weight:900;color:var(--navy)">${T('wordReady')}</h2>
-    <p style="color:var(--green);font-weight:700;font-size:16px;margin-top:8px">${T('wordReadySub')}</p>`;
-  tts('Word ready! Start asking your questions!', 1.0);
-
-  await sleep(2500);
-
-  // 플레이 화면
-  show('s-play');
-  document.getElementById('top-bar').style.display = 'flex';
-  applyPlayTx();
-  updateCounter();
-  diagnoseMic();
-}
-
-/* ════════════════════════════════════════════
-   QUESTION HANDLER
-   ✅ isAnswering 잠금으로 동시 다중 호출 방지
-   ✅ 오류 시 카운트 롤백 + 재시도 버튼
-════════════════════════════════════════════ */
-async function handleQuestion(question) {
-  if (!question.trim() || isAnswering || questionCount >= 20) return;
-
-  isAnswering = true;
-  lockInput(true);
-  questionCount++;
-  updateCounter();
-
-  const idx = qaHistory.length;
-  qaHistory.push({ q: question, a: null, err: false, retryQ: null });
-  renderQA();
-  showQAPanel();
-
-  document.getElementById('ai-bar').style.display = 'block';
-
-  try {
-    const data = await post('/api/ask', { secretWord, secretCategory, question });
-    qaHistory[idx].a = data.answer;
-    renderQA();
-
-    // 답변 자동 TTS
-    setTimeout(() => { ttsIdx = idx; ttsOn = true; updateSpeakBar(); tts(data.answer); }, 150);
-
-    // 게임 종료 판정
-    if (data.type === 'guess' && data.correct) {
-      await sleep(700);
-      tts('Correct! Congratulations! You guessed it!');
-      await sleep(300);
-      showWin();
-      return;
-    }
-
-  } catch(e) {
-    // 오류 시 카운트 롤백
-    questionCount--;
-    updateCounter();
-    qaHistory[idx].a     = '⚠️ ' + e.message;
-    qaHistory[idx].err   = true;
-    qaHistory[idx].retryQ = question;
-    renderQA();
-  }
-
-  document.getElementById('ai-bar').style.display = 'none';
-  isAnswering = false;
-  lockInput(false);
-
-  if (questionCount >= 20 && !qaHistory[idx]?.err) {
-    await sleep(1200);
-    tts('Game over. The answer was ' + secretWord + '.');
-    await sleep(300);
-    showLose();
-  }
-}
-
-function retryQuestion(q) {
-  qaHistory = qaHistory.filter(h => !(h.err && h.retryQ === q));
-  renderQA();
-  handleQuestion(q);
-}
-
-function sendText() {
-  const inp = document.getElementById('txt-inp');
-  const val = inp.value.trim();
-  if (!val) return;
-  inp.value = '';
-  handleQuestion(val);
-}
-
-/* ════════════════════════════════════════════
-   RENDER QA
-════════════════════════════════════════════ */
-function renderQA() {
-  const list = document.getElementById('qa-list');
-  list.innerHTML = '';
-
-  qaHistory.forEach((item, i) => {
-    const pair = document.createElement('div');
-    pair.className = 'qa-pair';
-
-    // Q 버블
-    const qb = document.createElement('div');
-    qb.className = 'q-bub';
-    qb.innerHTML = `<span class="q-badge">Q${i+1}</span><span class="q-txt">${esc(item.q)}</span>`;
-    pair.appendChild(qb);
-
-    if (item.a != null) {
-      if (item.err) {
-        // 오류 + 재시도 버튼
-        const ae = document.createElement('div');
-        ae.className = 'a-bub a-err'; ae.style.marginLeft='14px';
-        ae.textContent = item.a;
-        pair.appendChild(ae);
-        if (item.retryQ) {
-          const rb = document.createElement('button');
-          rb.className = 'retry-btn';
-          rb.textContent = T('retryTxt');
-          const q = item.retryQ;
-          rb.onclick = () => retryQuestion(q);
-          pair.appendChild(rb);
-        }
-      } else {
-        // 정상 답변 + 재생 버튼
-        const arow = document.createElement('div');
-        arow.className = 'a-row';
-        const ab = document.createElement('div');
-        ab.className = 'a-bub a-ok'; ab.textContent = item.a;
-        const rpb = document.createElement('button');
-        rpb.className = 'rp-btn' + (ttsOn && ttsIdx===i ? ' on' : '');
-        rpb.textContent = (ttsOn && ttsIdx===i) ? '⏹' : '🔊';
-        rpb.title = lang==='ko' ? '다시 듣기' : 'Replay';
-        const ans=item.a, ii=i;
-        rpb.onclick = () => playAnswer(ans, ii);
-        arow.appendChild(ab); arow.appendChild(rpb);
-        pair.appendChild(arow);
-      }
-    } else {
-      const al = document.createElement('div');
-      al.className = 'a-loading';
-      al.textContent = '⏳ ' + T('aiBarTxt');
-      pair.appendChild(al);
-    }
-
-    list.appendChild(pair);
-  });
-
-  list.scrollTop = list.scrollHeight;
-  document.getElementById('qa-title').textContent = `${T('qaTitle')} (${qaHistory.length})`;
-}
-
-/* ════════════════════════════════════════════
-   UI HELPERS
-════════════════════════════════════════════ */
-function lockInput(on) {
-  document.getElementById('txt-inp').disabled  = on;
-  document.getElementById('send-btn').disabled = on;
-  if (on && sttState === 'listening') {
-    sttState = 'stopping';
-    try { recInst && recInst.stop(); } catch(e){}
-  }
-}
-
-function showQAPanel() {
-  document.getElementById('qa-panel').style.display = qaHistory.length > 0 ? 'block' : 'none';
-}
-
-function toggleQA() {
-  showQA = !showQA;
-  document.getElementById('qa-list').style.display = showQA ? 'block' : 'none';
-  document.getElementById('qa-icon').textContent = showQA ? '▲' : '▼';
-}
-
-function toggleReveal() {
-  showReveal = !showReveal;
-  const box = document.getElementById('ans-reveal');
-  box.style.display = showReveal ? 'flex' : 'none';
-  document.getElementById('ans-word').textContent = showReveal ? secretWord : '';
-}
-
-function showWin() {
-  show('s-win');
-  document.getElementById('top-bar').style.display = 'none';
-  document.getElementById('t-win-t').textContent  = T('winT');
-  document.getElementById('t-win-s').textContent  = T('winS');
-  document.getElementById('t-win-al').textContent = T('ansLbl2');
-  document.getElementById('win-word').textContent = secretWord;
-  document.getElementById('st-used').textContent  = questionCount;
-  document.getElementById('st-saved').textContent = 20 - questionCount;
-  document.getElementById('t-used').textContent   = T('usedLbl');
-  document.getElementById('t-saved').textContent  = T('savedLbl');
-  document.getElementById('t-again1').textContent = T('playAgain');
-}
-
-function showLose() {
-  show('s-lose');
-  document.getElementById('top-bar').style.display = 'none';
-  document.getElementById('t-lose-t').textContent  = T('loseT');
-  document.getElementById('t-lose-s').textContent  = T('loseS');
-  document.getElementById('t-lose-al').textContent = T('ansLbl2');
-  document.getElementById('lose-word').textContent = secretWord;
-  document.getElementById('t-again2').textContent  = T('playAgain');
-}
-
-function confirmEnd() {
-  if (confirm(lang==='ko' ? '게임을 종료할까요?' : 'End the game?')) resetGame();
-}
-
-function resetGame() {
-  stopTTS();
-  if (recInst) { try { recInst.abort(); } catch(e){} recInst = null; }
-  sttState = 'idle'; liveTxt = '';
-  clearInterval(dialTimer);
-  secretWord = ''; secretCategory = '';
-  questionCount = 0; qaHistory = [];
-  isAnswering = false; showReveal = false; showQA = true;
-  ttsOn = false; ttsIdx = null;
-
-  document.getElementById('top-bar').style.display = 'none';
-  document.getElementById('qa-panel').style.display = 'none';
-  document.getElementById('qa-list').innerHTML = '';
-  document.getElementById('ans-reveal').style.display = 'none';
-  document.getElementById('speak-bar').style.display = 'none';
-  document.getElementById('live-box').style.display  = 'none';
-  document.getElementById('ai-bar').style.display    = 'none';
-  document.getElementById('txt-inp').value = '';
-  document.getElementById('s-think').innerHTML = `
-    <div style="font-size:72px" id="think-icon">🤔</div>
-    <h2 style="font-size:28px;font-weight:900;color:var(--navy)" id="t-think">Thinking<span id="dots">...</span></h2>
-    <p style="color:var(--gray);font-weight:600;font-size:14px" id="t-think-sub">AI is locking in the secret word</p>`;
-  _resetMicBtn();
-  show('s-start');
-  applyStartTx();
-}
-
-/* ════════════════════════════════════════════
-   API 공통 호출
-════════════════════════════════════════════ */
-async function post(path, body) {
-  const res = await fetch(path, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || `Server error ${res.status}`);
-  return data;
-}
-
-/* ════════════════════════════════════════════
-   UTILS
-════════════════════════════════════════════ */
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-const esc   = s  => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-
-// 페이지 종료 시 STT 정리
-window.addEventListener('beforeunload', () => {
-  if (recInst) { try { recInst.abort(); } catch(e){} }
-  speechSynthesis.cancel();
-});
+const T=k=>(TX[lang]??TX.en)[k]??TX.en[k]??k;
+
+/* ── SCREEN ── */
+const show=id=>{document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on')};
+
+/* ── LANG ── */
+function setLang(l){lang=l;document.getElementById('b-en').classList.toggle('on',l==='en');document.getElementById('b-ko').classList.toggle('on',l==='ko');applyTx()}
+function applyTx(){['t0','t1','t2','t3','t4','t5','t6'].forEach(k=>document.getElementById(k).textContent=T(k))}
+function applyPlayTx(){['ta','tb','tc','td','tg'].forEach(k=>{const el=document.getElementById(k);if(el)el.textContent=T(k)});document.getElementById('cntlbl').textContent=T('cntLbl');document.getElementById('mictxt').textContent=T('mcBtn');document.getElementById('txti').placeholder=T('placeholder');document.getElementById('sendbtn').textContent=T('sendTxt');document.getElementById('aibar').textContent=T('aiBarTxt');document.getElementById('te').textContent=T('te');document.getElementById('tf').textContent=T('tf')}
+
+/* ── TTS ── */
+(()=>{if(!('speechSynthesis' in window))return;speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()})();
+function getVoice(){const vs=speechSynthesis.getVoices();const want=['Samantha','Karen','Moira','Google US English','Alex','Daniel'];return vs.find(v=>want.some(w=>v.name.includes(w))&&v.lang.startsWith('en'))||vs.find(v=>v.lang.startsWith('en-US'))||vs.find(v=>v.lang.startsWith('en'))||null}
+function tts(text,rate=.9){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=rate;u.pitch=1.05;u.volume=1;const v=getVoice();if(v)u.voice=v;u.onend=u.onerror=()=>{ttsOn=false;ttsIdx=null;updateSpkBar()};ttsOn=true;speechSynthesis.speak(u)}
+function stopTTS(){speechSynthesis.cancel();ttsOn=false;ttsIdx=null;updateSpkBar()}
+function updateSpkBar(){document.getElementById('spkbar').style.display=ttsOn?'flex':'none';document.querySelectorAll('.rp-btn').forEach((b,i)=>{const on=ttsOn&&i===ttsIdx;b.classList.toggle('on',on);b.textContent=on?'⏹':'🔊'})}
+function playAns(text,idx){if(ttsOn&&ttsIdx===idx){stopTTS();return}stopTTS();ttsIdx=idx;ttsOn=true;updateSpkBar();tts(text)}
+
+/* ── MIC DIAG ── */
+let micSt='checking';
+async function diagMic(){setMicSt('checking');if(location.protocol==='file:'){setMicSt('file');return}if(!window.SpeechRecognition&&!window.webkitSpeechRecognition){setMicSt('no_support');return}if(!navigator.mediaDevices?.getUserMedia){setMicSt('no_support');return}try{const s=await navigator.mediaDevices.getUserMedia({audio:true});s.getTracks().forEach(t=>t.stop());setMicSt('ready')}catch(e){const n=e.name??'';setMicSt(n.includes('NotAllowed')||n.includes('PermissionDenied')?'denied':n.includes('NotFound')?'no_device':'no_support')}}
+function setMicSt(s){micSt=s;const bar=document.getElementById('stbar');const btn=document.getElementById('micbtn');const M={checking:['#F2F2F7','#8E8E93','mcCheck'],ready:['#E8F5E9','#2E7D32','mcReady'],denied:['#FFF0F0','#FF3B30','mcDenied'],no_device:['#FFF0F0','#FF3B30','mcNoDevice'],no_support:['#FFF9E6','#FF9500','mcNoSupport'],file:['#FFF9E6','#FF9500','mcFile']};const[bg,col,key]=M[s]||M.checking;bar.style.background=bg;bar.style.color=col;bar.textContent=T(key);btn.disabled=['no_support','file'].includes(s)}
+
+/* ── STT SINGLETON STATE MACHINE ── */
+function toggleMic(){if(['no_support','file'].includes(micSt)||busy)return;if(sttSt==='listening'||sttSt==='starting'){sttSt='stopping';try{rec&&rec.stop()}catch(e){}return}if(sttSt!=='idle')return;if(ttsOn){stopTTS();setTimeout(_startSTT,200)}else _startSTT()}
+function _startSTT(){if(sttSt!=='idle')return;sttSt='starting';liveStr='';if(rec){rec.onstart=rec.onresult=rec.onerror=rec.onend=null;try{rec.abort()}catch(e){}rec=null}const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){sttSt='idle';setMicSt('no_support');return}const r=new SR();r.lang=lang==='ko'?'ko-KR':'en-US';r.continuous=false;r.interimResults=true;r.maxAlternatives=1;r.onstart=()=>{sttSt='listening';document.getElementById('micbtn').classList.add('rec');document.getElementById('mictxt').textContent=T('mcRec');document.getElementById('micicon').textContent='⏹'};r.onresult=e=>{let f='',x='';for(let i=e.resultIndex;i<e.results.length;i++){if(e.results[i].isFinal)f+=e.results[i][0].transcript;else x+=e.results[i][0].transcript}liveStr=f||x;const lb=document.getElementById('livebox');document.getElementById('livetxt').textContent=liveStr;lb.style.display=liveStr?'block':'none'};r.onerror=e=>{if(e.error==='not-allowed')setMicSt('denied')};r.onend=()=>{sttSt='idle';rec=null;_resetMicBtn();const cap=liveStr.trim();document.getElementById('livebox').style.display='none';document.getElementById('livetxt').textContent='';liveStr='';if(cap&&!busy&&qcount<20)setTimeout(()=>handleQ(cap),150)};rec=r;try{r.start()}catch(e){sttSt='idle';rec=null;_resetMicBtn()}}
+function _resetMicBtn(){document.getElementById('micbtn').classList.remove('rec');document.getElementById('mictxt').textContent=T('mcBtn');document.getElementById('micicon').textContent='🎙'}
+
+/* ── DIAL ── */
+const DC=['???','◆◆◆','▲▲▲','●●●','■■■','★★★','◇◇◇'];
+function runDial(){const tk=document.getElementById('dtk');let f=0;dialTmr=setInterval(()=>{f++;tk.innerHTML='';for(let i=0;i<5;i++){const d=document.createElement('div');const m=i===2;d.className='dial-item';d.style.cssText=`font-size:${m?'30px':'18px'};color:${m?'var(--blue)':'var(--navy)'};opacity:${m?1:.2+i*.08};letter-spacing:6px`;d.textContent=DC[(f+i)%DC.length];tk.appendChild(d)}},80)}
+
+/* ── COUNTER ── */
+function updateCnt(){const p=qcount/20;const col=p<.5?'var(--green)':p<.75?'var(--orange)':'var(--red)';document.getElementById('cntnum').innerHTML=`${qcount}<span style="font-size:12px;color:var(--gray);font-weight:700">/20</span>`;document.getElementById('cntnum').style.color=col}
+
+/* ── GAME START ── */
+async function startGame(){show('sd');document.getElementById('topbar').style.display='none';document.getElementById('t7').textContent=T('t7');runDial();await sleep(3200);clearInterval(dialTmr);show('st');document.getElementById('t8').innerHTML=T('t8')+'<span id="dots">...</span>';document.getElementById('t9').textContent=T('t9');let d=0;const dtmr=setInterval(()=>{d=(d+1)%4;const el=document.getElementById('dots');if(el)el.textContent='.'.repeat(d+1)},400);try{const data=await post('/api/get-word',{lang});word=data.word;cat=data.category}catch(e){clearInterval(dtmr);alert('단어 생성 실패: '+e.message);show('ss');return}clearInterval(dtmr);document.getElementById('st').innerHTML=`<div style="font-size:72px;margin-bottom:12px">✅</div><h2 style="font-size:26px;font-weight:900;color:var(--navy)">${T('wordReady')}</h2><p style="color:var(--green);font-weight:700;font-size:16px;margin-top:8px">${T('wordReadySub')}</p>`;tts('Word ready! Start asking your questions!',1.0);await sleep(2500);show('sp');document.getElementById('topbar').style.display='flex';applyPlayTx();updateCnt();diagMic()}
+
+/* ── QUESTION ── */
+async function handleQ(question){if(!question.trim()||busy||qcount>=20)return;busy=true;lockInp(true);qcount++;updateCnt();const idx=qa.length;qa.push({q:question,a:null,err:false,retryQ:null});renderQA();showQAPanel();document.getElementById('aibar').style.display='block';try{const data=await post('/api/ask',{secretWord:word,secretCategory:cat,question});qa[idx].a=data.answer;renderQA();setTimeout(()=>{ttsIdx=idx;ttsOn=true;updateSpkBar();tts(data.answer)},150);if(data.type==='guess'&&data.correct){await sleep(700);tts('Correct! Congratulations! You guessed it!');await sleep(300);showWin();return}}catch(e){qcount--;updateCnt();qa[idx].a='⚠️ '+e.message;qa[idx].err=true;qa[idx].retryQ=question;renderQA()}document.getElementById('aibar').style.display='none';busy=false;lockInp(false);if(qcount>=20&&!qa[idx]?.err){await sleep(1200);tts('Game over. The answer was '+word+'.');await sleep(300);showLose()}}
+function retryQ(q){qa=qa.filter(h=>!(h.err&&h.retryQ===q));renderQA();handleQ(q)}
+function sendText(){const v=document.getElementById('txti').value.trim();if(!v)return;document.getElementById('txti').value='';handleQ(v)}
+
+/* ── RENDER QA ── */
+function renderQA(){const list=document.getElementById('qalist');list.innerHTML='';qa.forEach((item,i)=>{const pair=document.createElement('div');pair.className='qa-pair';const qb=document.createElement('div');qb.className='q-bub';qb.innerHTML=`<span class="q-badge">Q${i+1}</span><span class="q-txt">${esc(item.q)}</span>`;pair.appendChild(qb);if(item.a!=null){if(item.err){const ae=document.createElement('div');ae.className='a-bub a-err';ae.style.marginLeft='14px';ae.textContent=item.a;pair.appendChild(ae);if(item.retryQ){const rb=document.createElement('button');rb.className='retry-btn';rb.textContent=T('retryTxt');const q2=item.retryQ;rb.onclick=()=>retryQ(q2);pair.appendChild(rb)}}else{const ar=document.createElement('div');ar.className='a-row';const ab=document.createElement('div');ab.className='a-bub a-ok';ab.textContent=item.a;const rp=document.createElement('button');rp.className='rp-btn'+(ttsOn&&ttsIdx===i?' on':'');rp.textContent=(ttsOn&&ttsIdx===i)?'⏹':'🔊';rp.title='Replay';const ans=item.a,ii=i;rp.onclick=()=>playAns(ans,ii);ar.appendChild(ab);ar.appendChild(rp);pair.appendChild(ar)}}else{const al=document.createElement('div');al.className='a-load';al.textContent='⏳ '+T('aiBarTxt');pair.appendChild(al)}list.appendChild(pair)});list.scrollTop=list.scrollHeight;document.getElementById('qatitle').textContent=`💬 ${lang==='ko'?'질문 기록':'Q&A History'} (${qa.length})`}
+
+/* ── UI ── */
+function lockInp(on){document.getElementById('txti').disabled=on;document.getElementById('sendbtn').disabled=on;if(on&&sttSt==='listening'){sttSt='stopping';try{rec&&rec.stop()}catch(e){}}}
+function showQAPanel(){document.getElementById('qap').style.display=qa.length>0?'block':'none'}
+function toggleQA(){qaOpen=!qaOpen;document.getElementById('qalist').style.display=qaOpen?'block':'none';document.getElementById('qaicon').textContent=qaOpen?'▲':'▼'}
+function toggleReveal(){revealOn=!revealOn;document.getElementById('ansrev').style.display=revealOn?'flex':'none';document.getElementById('answord').textContent=revealOn?word:''}
+function showWin(){show('sw');document.getElementById('topbar').style.display='none';['th','ti','tj','tk','tl','tm'].forEach(k=>{const el=document.getElementById(k);if(el)el.textContent=T(k)});document.getElementById('winword').textContent=word;document.getElementById('stused').textContent=qcount;document.getElementById('stsaved').textContent=20-qcount}
+function showLose(){show('sl');document.getElementById('topbar').style.display='none';['tn','to','tp','tq'].forEach(k=>{const el=document.getElementById(k);if(el)el.textContent=T(k)});document.getElementById('loseword').textContent=word}
+function confirmEnd(){if(confirm(lang==='ko'?'게임을 종료할까요?':'End the game?'))resetGame()}
+function resetGame(){stopTTS();if(rec){try{rec.abort()}catch(e){}}rec=null;sttSt='idle';liveStr='';clearInterval(dialTmr);word='';cat='';qcount=0;qa=[];busy=false;revealOn=false;qaOpen=true;ttsOn=false;ttsIdx=null;document.getElementById('topbar').style.display='none';document.getElementById('qap').style.display='none';document.getElementById('qalist').innerHTML='';document.getElementById('ansrev').style.display='none';document.getElementById('spkbar').style.display='none';document.getElementById('livebox').style.display='none';document.getElementById('aibar').style.display='none';document.getElementById('txti').value='';document.getElementById('st').innerHTML=`<div style="font-size:72px">🤔</div><h2 style="font-size:28px;font-weight:900;color:var(--navy)" id="t8">Thinking<span id="dots">...</span></h2><p style="color:var(--gray);font-weight:600;font-size:14px" id="t9">AI is locking in the secret word</p>`;_resetMicBtn();show('ss');applyTx()}
+
+/* ── API ── */
+async function post(path,body){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await r.json();if(!r.ok)throw new Error(data.error||`Server error ${r.status}`);return data}
+
+/* ── UTILS ── */
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+window.addEventListener('beforeunload',()=>{if(rec){try{rec.abort()}catch(e){}}speechSynthesis.cancel()});
 </script>
 </body>
 </html>
