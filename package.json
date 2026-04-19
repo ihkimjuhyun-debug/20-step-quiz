@@ -1,5 +1,1 @@
-{
-  "name": "20-questions-game",
-  "version": "1.0.0",
-  "type": "module"
-}
+{ "name": "20-questions", "version": "1.0.0", "type": "module" }
