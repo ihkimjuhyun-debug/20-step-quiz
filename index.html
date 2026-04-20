@@ -9,10 +9,7 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;background:var(--bg);color:#1C1C1E;-webkit-font-smoothing:antialiased}
 .app{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
-.screen{display:none}
-.screen.on{display:flex;flex-direction:column}
-
-/* START */
+.screen{display:none}.screen.on{display:flex;flex-direction:column}
 #ss{align-items:center;justify-content:center;min-height:100vh;padding:40px 22px;gap:22px;position:relative}
 .glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,255,.14) 0%,transparent 70%);pointer-events:none}
 .s-icon{font-size:80px;filter:drop-shadow(0 8px 24px rgba(0,122,255,.32))}
@@ -26,41 +23,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun 
 .start-btn{width:100%;height:60px;border-radius:18px;background:var(--navy);color:#fff;border:none;font-size:18px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 24px rgba(0,45,94,.28)}
 .feat-box{background:var(--card);border-radius:20px;padding:18px 20px;width:100%;max-width:360px;border:1px solid var(--border);display:flex;flex-direction:column;gap:10px}
 .feat-row{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:600;color:#3A3A3C}
-
-/* DIAL */
 #sd{align-items:center;justify-content:center;min-height:100vh;gap:20px}
 .dial-lbl{color:var(--gray);font-weight:700;font-size:15px}
 .dial-outer{width:240px;height:280px;border-radius:28px;background:var(--card);overflow:hidden;position:relative;border:1px solid var(--border);box-shadow:0 12px 40px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center}
 .dial-hl{position:absolute;left:10px;right:10px;top:50%;transform:translateY(-50%);height:56px;background:rgba(0,122,255,.07);border-radius:12px;pointer-events:none;z-index:2}
 .dial-track{position:absolute;width:100%;display:flex;flex-direction:column;align-items:center}
 .dial-item{height:56px;display:flex;align-items:center;justify-content:center;font-weight:900;user-select:none}
-
-/* THINKING */
 #st{align-items:center;justify-content:center;min-height:100vh;gap:16px;text-align:center;padding:32px}
-
-/* TOP BAR */
 #topbar{display:none;align-items:center;justify-content:space-between;padding:13px 16px;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-bottom:.5px solid var(--border);position:sticky;top:0;z-index:100}
 .tbb{padding:8px 13px;border-radius:10px;border:none;font-size:13px;font-weight:800;cursor:pointer}
-.tbb-r{background:var(--red);color:#fff}
-.tbb-b{background:var(--blue);color:#fff}
+.tbb-r{background:var(--red);color:#fff}.tbb-b{background:var(--blue);color:#fff}
 #cntnum{font-size:26px;font-weight:900;line-height:1;text-align:center;transition:color .3s}
 #cntlbl{font-size:9px;color:var(--gray);font-weight:700;letter-spacing:.5px;text-align:center}
-
-/* PLAY */
 #sp{min-height:100vh}
 .ans-rev{display:none;background:#FFF9E6;border:1.5px solid var(--yellow);border-radius:14px;margin:10px 14px 0;padding:10px 16px;align-items:center;gap:10px;flex-direction:row}
 .mys-card{margin:14px;background:var(--card);border-radius:26px;padding:22px 20px;text-align:center;box-shadow:0 6px 28px rgba(0,0,0,.06);border:1px solid var(--border)}
 .mys-word{font-size:52px;font-weight:900;color:var(--navy);letter-spacing:20px}
 .mys-sub{font-size:13px;color:var(--gray);font-weight:700;margin-top:6px}
-
-/* QA */
 .qa-panel{margin:0 14px 6px;background:var(--card);border-radius:22px;border:1px solid var(--border);overflow:hidden}
 .qa-head{width:100%;padding:13px 18px;background:none;border:none;cursor:pointer;font-weight:800;font-size:14px;color:var(--navy);display:flex;justify-content:space-between;align-items:center}
-.qa-scroll{max-height:300px;overflow-y:auto;padding:4px 14px 14px}
-.qa-pair{margin-bottom:14px}
+.qa-scroll{max-height:320px;overflow-y:auto;padding:4px 14px 14px}
+.qa-pair{margin-bottom:16px}
 .q-bub{background:#F2F2F7;border-radius:16px 16px 16px 4px;padding:9px 13px;display:flex;gap:8px;align-items:flex-start;margin-bottom:5px}
 .q-badge{background:var(--blue);color:#fff;border-radius:7px;padding:2px 7px;font-size:10px;font-weight:800;flex-shrink:0;margin-top:1px}
-.q-txt{font-size:14px;font-weight:600;color:var(--navy);line-height:1.4}
+.q-main{display:flex;flex-direction:column;gap:2px}
+.q-raw{font-size:11px;color:var(--gray);font-weight:500;font-style:italic}
+.q-txt{font-size:14px;font-weight:700;color:var(--navy);line-height:1.4}
+.q-interp-badge{font-size:9px;font-weight:800;color:var(--orange);background:#FFF3E0;border-radius:5px;padding:1px 5px;align-self:flex-start}
 .a-row{display:flex;align-items:flex-start;gap:7px;margin-left:14px}
 .a-bub{flex:1;border-radius:4px 16px 16px 16px;padding:9px 13px;font-size:14px;font-weight:700;line-height:1.4}
 .a-ok{background:#E8F5E9;color:#2E7D32}
@@ -69,13 +58,29 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun 
 .rp-btn{flex-shrink:0;width:34px;height:34px;border-radius:10px;border:1px solid var(--border);background:#F8F8FA;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .rp-btn.on{background:#FFE5E5;border-color:var(--red)}
 .retry-btn{margin-top:6px;margin-left:14px;padding:5px 12px;border-radius:8px;border:none;background:var(--orange);color:#fff;font-size:12px;font-weight:800;cursor:pointer}
-
-/* INPUT */
 #inparea{position:sticky;bottom:0;background:rgba(242,242,247,.97);backdrop-filter:blur(20px);border-top:.5px solid var(--border);padding:10px 14px 28px;width:100%}
 .statusbar{border-radius:10px;padding:7px 12px;font-size:12px;font-weight:700;text-align:center;margin-bottom:8px}
 .speak-bar{background:#E3F0FF;border-radius:12px;padding:8px 14px;font-size:13px;font-weight:800;color:var(--blue);display:none;align-items:center;gap:8px;margin-bottom:8px}
 .speak-stop{margin-left:auto;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:4px 10px;font-size:12px;font-weight:800;cursor:pointer}
-.live-box{background:#fff;border:1.5px dashed var(--red);border-radius:12px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--navy);min-height:34px;display:none;margin-bottom:8px}
+/* LIVE STT BOX */
+.live-box{background:#fff;border:1.5px dashed var(--red);border-radius:16px;padding:10px 14px;display:none;margin-bottom:8px}
+.live-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink .8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.live-label{font-size:10px;color:var(--red);font-weight:800;letter-spacing:.5px}
+.live-timer{margin-left:auto;font-size:12px;font-weight:900;color:var(--orange)}
+.live-txt{font-size:14px;font-weight:600;color:var(--navy);line-height:1.4;min-height:20px}
+.live-actions{display:flex;gap:8px;margin-top:8px}
+.edit-btn{height:34px;padding:0 12px;border-radius:10px;border:1px solid var(--border);background:#F2F2F7;color:var(--navy);font-size:12px;font-weight:800;cursor:pointer}
+.live-inp{flex:1;height:34px;border-radius:10px;border:1px solid var(--border);padding:0 10px;font-size:13px;font-weight:600;outline:none;background:#fff;display:none}
+.live-inp:focus{border-color:var(--blue)}
+.live-sub{height:34px;padding:0 14px;border-radius:10px;background:var(--blue);color:#fff;border:none;font-size:12px;font-weight:800;cursor:pointer;display:none}
+/* CHIPS */
+.chips-lbl{font-size:10px;font-weight:800;color:var(--gray);letter-spacing:.5px;margin-bottom:5px}
+.chips-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:8px;scrollbar-width:none}
+.chips-row::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;padding:7px 12px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);font-size:12px;font-weight:700;color:var(--navy);cursor:pointer;white-space:nowrap;transition:all .12s}
+.chip:active{background:var(--navy);color:#fff;transform:scale(.95)}
 .ai-bar{background:#EAF3FF;color:var(--blue);border-radius:12px;padding:8px 14px;font-size:13px;font-weight:800;text-align:center;display:none;margin-bottom:8px}
 .mic-btn{width:100%;height:62px;border-radius:20px;background:var(--navy);color:#fff;border:none;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 20px rgba(0,45,94,.2);transition:background .2s,box-shadow .2s}
 .mic-btn.rec{background:var(--red);box-shadow:0 6px 24px rgba(255,59,48,.45)}
@@ -85,9 +90,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun 
 .txt-inp:focus{border-color:var(--blue)}
 .send-btn{height:46px;padding:0 18px;border-radius:14px;background:var(--blue);color:#fff;border:none;font-size:14px;font-weight:800;cursor:pointer}
 .send-btn:disabled{opacity:.4}
-.hint{font-size:11px;color:#C7C7CC;text-align:center;margin-top:5px;font-weight:600}
-
-/* END */
 #sw,#sl{align-items:center;justify-content:center;min-height:100vh;padding:40px 28px;gap:18px}
 #sw{background:linear-gradient(155deg,#002D5E 0%,#007AFF 100%)}
 #sl{background:linear-gradient(155deg,#1C1C1E 0%,#3A3A3C 100%)}
@@ -106,8 +108,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun 
 </head>
 <body>
 <div class="app">
-
-<!-- START -->
 <div id="ss" class="screen on">
   <div class="glow"></div>
   <div class="s-icon">🔮</div>
@@ -116,64 +116,73 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun 
     <div class="card-lbl">CHOOSE LANGUAGE · 언어 선택</div>
     <div class="lang-row">
       <button class="lbtn on" id="b-en" onclick="setLang('en')">🇺🇸 English</button>
-      <button class="lbtn"    id="b-ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+      <button class="lbtn" id="b-ko" onclick="setLang('ko')">🇰🇷 한국어</button>
     </div>
     <button class="start-btn" onclick="startGame()"><span style="font-size:22px">▶</span><span id="t2">Start Game</span></button>
   </div>
   <div class="feat-box">
-    <div class="feat-row"><span>🎙</span><span id="t3">Voice or text input</span></div>
-    <div class="feat-row"><span>🔊</span><span id="t4">AI answers spoken aloud</span></div>
-    <div class="feat-row"><span>🔄</span><span id="t5">Replay any answer</span></div>
-    <div class="feat-row"><span>🏆</span><span id="t6">Guess within 20 questions!</span></div>
+    <div class="feat-row"><span>🎙</span><span id="t3">Voice → AI auto-corrects your question</span></div>
+    <div class="feat-row"><span>⏱</span><span id="t4">Silence detected → auto-submit</span></div>
+    <div class="feat-row"><span>💡</span><span id="t5">Quick question chips</span></div>
+    <div class="feat-row"><span>🔊</span><span id="t6">AI answers spoken aloud</span></div>
   </div>
 </div>
-
-<!-- DIAL -->
 <div id="sd" class="screen">
   <p class="dial-lbl" id="t7">AI is choosing a word…</p>
   <div class="dial-outer"><div class="dial-hl"></div><div class="dial-track" id="dtk"></div></div>
 </div>
-
-<!-- THINKING -->
 <div id="st" class="screen">
   <div style="font-size:72px">🤔</div>
   <h2 style="font-size:28px;font-weight:900;color:var(--navy)" id="t8">Thinking<span id="dots">...</span></h2>
-  <p  style="color:var(--gray);font-weight:600;font-size:14px" id="t9">AI is locking in the secret word</p>
+  <p style="color:var(--gray);font-weight:600;font-size:14px" id="t9">AI is locking in the secret word</p>
 </div>
-
-<!-- TOP BAR -->
 <div id="topbar">
   <button class="tbb tbb-r" id="ta" onclick="confirmEnd()">End</button>
   <div><div id="cntnum" style="color:var(--green)">0<span style="font-size:12px;color:var(--gray);font-weight:700">/20</span></div><div id="cntlbl">QUESTIONS</div></div>
   <button class="tbb tbb-b" id="tb" onclick="toggleReveal()">Show Answer</button>
 </div>
-
-<!-- PLAY -->
 <div id="sp" class="screen">
-  <div class="ans-rev" id="ansrev"><span style="font-size:12px;font-weight:800;color:var(--gray)" id="tc">Answer:</span><span style="font-size:22px;font-weight:900;color:var(--red)" id="answord"></span></div>
+  <div class="ans-rev" id="ansrev">
+    <span style="font-size:12px;font-weight:800;color:var(--gray)" id="tc">Answer:</span>
+    <span style="font-size:22px;font-weight:900;color:var(--red)" id="answord"></span>
+  </div>
   <div class="mys-card"><div class="mys-word">???</div><div class="mys-sub" id="td">What's the secret word?</div></div>
   <div class="qa-panel" id="qap" style="display:none">
-    <button class="qa-head" onclick="toggleQA()"><span id="qatitle">💬 Q&amp;A (0)</span><span id="qaicon">▲</span></button>
+    <button class="qa-head" onclick="toggleQA()"><span id="qatitle">💬 Q&A (0)</span><span id="qaicon">▲</span></button>
     <div class="qa-scroll" id="qalist"></div>
   </div>
   <div id="inparea">
-    <div id="stbar" class="statusbar" style="background:#F2F2F7;color:var(--gray)">Checking microphone…</div>
-    <div class="speak-bar" id="spkbar"><span>🔊</span><span id="te">Speaking…</span><button class="speak-stop" onclick="stopTTS()" id="tf">⏹ Stop</button></div>
-    <div class="live-box" id="livebox"><span style="font-size:10px;color:var(--red);font-weight:800;margin-right:6px">● LIVE</span><span id="livetxt"></span></div>
+    <div id="stbar" class="statusbar" style="background:#F2F2F7;color:var(--gray)">Checking…</div>
+    <div class="speak-bar" id="spkbar"><span>🔊</span><span id="te">Speaking…</span><button class="speak-stop" onclick="stopTTS()">⏹ Stop</button></div>
     <div class="ai-bar" id="aibar">AI thinking…</div>
-    <button class="mic-btn" id="micbtn" onclick="toggleMic()"><span style="font-size:24px" id="micicon">🎙</span><span id="mictxt">Ask a Question (Voice)</span></button>
+    <div class="live-box" id="livebox">
+      <div class="live-header">
+        <div class="live-dot"></div>
+        <span class="live-label">LISTENING</span>
+        <span class="live-timer" id="ltimer"></span>
+      </div>
+      <div class="live-txt" id="livetxt">Say your question…</div>
+      <div class="live-actions">
+        <button class="edit-btn" id="editbtn" onclick="enterEdit()">✏️ Edit</button>
+        <input class="live-inp" id="liveinp" placeholder="Edit…" onkeydown="if(event.key==='Enter')submitEdit()">
+        <button class="live-sub" id="livesub" onclick="submitEdit()">Send ↑</button>
+      </div>
+    </div>
+    <div class="chips-lbl" id="clbl">QUICK QUESTIONS</div>
+    <div class="chips-row" id="chips"></div>
+    <button class="mic-btn" id="micbtn" onclick="toggleMic()">
+      <span style="font-size:24px" id="micicon">🎙</span>
+      <span id="mictxt">Ask a Question (Voice)</span>
+    </button>
     <div class="txt-row">
-      <input class="txt-inp" id="txti" placeholder="Or type your question here…" onkeydown="if(event.key==='Enter')sendText()">
+      <input class="txt-inp" id="txti" placeholder="Or type your question…" onkeydown="if(event.key==='Enter')sendText()">
       <button class="send-btn" id="sendbtn" onclick="sendText()">Send</button>
     </div>
-    <p class="hint" id="tg">e.g. Is it an animal? · Can you eat it? · Is it a person?</p>
   </div>
 </div>
-
-<!-- WIN -->
 <div id="sw" class="screen">
   <div class="end-icon" style="filter:drop-shadow(0 8px 24px rgba(0,0,0,.3))">🎉</div>
-  <h1 class="end-title" id="th">Correct! 🎉</h1><p class="end-sub" id="ti">You guessed it!</p>
+  <h1 class="end-title" id="th">Correct!</h1><p class="end-sub" id="ti">You guessed it!</p>
   <div class="word-box"><div class="word-lbl" id="tj">Answer:</div><div class="word-val" style="color:var(--yellow)" id="winword"></div></div>
   <div class="stat-row">
     <div class="stat-box"><span class="stn" id="stused">0</span><span class="stl" id="tk">Used</span></div>
@@ -181,88 +190,172 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun 
   </div>
   <button class="again-btn" style="background:var(--green)" onclick="resetGame()" id="tm">Play Again</button>
 </div>
-
-<!-- LOSE -->
 <div id="sl" class="screen">
   <div class="end-icon">😢</div>
-  <h1 class="end-title" id="tn">Game Over! 😢</h1><p class="end-sub" id="to">You used all 20 questions.</p>
-  <div class="word-box" style="background:rgba(255,255,255,.08)"><div class="word-lbl" style="color:rgba(255,255,255,.4)" id="tp">Answer:</div><div class="word-val" style="color:var(--red)" id="loseword"></div></div>
+  <h1 class="end-title" id="tn">Game Over!</h1><p class="end-sub" id="to">You used all 20 questions.</p>
+  <div class="word-box" style="background:rgba(255,255,255,.08)">
+    <div class="word-lbl" style="color:rgba(255,255,255,.4)" id="tp">Answer:</div>
+    <div class="word-val" style="color:var(--red)" id="loseword"></div>
+  </div>
   <button class="again-btn" style="background:var(--blue)" onclick="resetGame()" id="tq">Play Again</button>
 </div>
-
 </div>
 <script>
-/* ── STATE ── */
-let lang='en', word='', cat='', qcount=0, qa=[], busy=false, revealOn=false, qaOpen=true;
-let ttsOn=false, ttsIdx=null;
-let rec=null, sttSt='idle', liveStr=''; // idle|starting|listening|stopping
-let dialTmr=null;
+/* STATE */
+let lang='en',word='',cat='',qcount=0,qa=[],busy=false,revealOn=false,qaOpen=true;
+let ttsOn=false,ttsIdx=null;
+let rec=null,sttSt='idle',liveStr='',editMode=false;
+let silenceTmr=null,silenceSec=0,dialTmr=null;
+const SILENCE=1.8; // 침묵 자동제출 초
 
-/* ── TRANSLATIONS ── */
+/* CHIPS */
+const CHIPS={
+  en:['Is it alive?','Is it an animal?','Is it a plant?','Is it man-made?','Can you eat it?','Can you drink it?','Can you wear it?','Is it bigger than a car?','Is it smaller than your hand?','Can it fly?','Does it live in water?','Does it have legs?','Is it found indoors?','Is it found outdoors?','Is it a famous person?','Does it make a sound?','Is it hard?','Is it soft?','Is it used for sport?','Is it electronic?','Does it have wheels?','Can children use it?','Is it dangerous?','Is it colorful?','Is it expensive?','Can you find it in a kitchen?'],
+  ko:['Is it alive?','Is it an animal?','Is it man-made?','Can you eat it?','Can you wear it?','Can you drink it?','Is it bigger than a car?','Can it fly?','Does it live in water?','Is it a famous person?','Is it found outdoors?','Is it electronic?','Does it make a sound?','Is it expensive?','Is it used for sport?','Is it hard?']
+};
+function buildChips(){const row=document.getElementById('chips');row.innerHTML='';(CHIPS[lang]||CHIPS.en).forEach(q=>{const c=document.createElement('button');c.className='chip';c.textContent=q;c.onclick=()=>{if(!busy&&qcount<20)handleQ(q)};row.appendChild(c)})}
+
+/* TX */
 const TX={
-  en:{t0:'20 Questions',t1:'AI Word Guessing Game',t2:'Start Game',t3:'Voice or text input',t4:'AI answers spoken aloud',t5:'Replay any answer',t6:'Guess within 20 questions!',t7:'AI is choosing a word…',t8:'Thinking',t9:'AI is locking in the secret word',wordReady:'Word Ready!',wordReadySub:'Start asking questions!',ta:'End',tb:'Show Answer',tc:'Answer:',td:"What's the secret word?",te:'🔊 Speaking…',tf:'⏹ Stop',tg:'e.g. Is it an animal? · Can you eat it? · Is it a person?',mcCheck:'Checking microphone…',mcReady:'✅ Microphone ready',mcDenied:'🚫 Mic denied — type below',mcNoDevice:'🎙 No mic — type below',mcNoSupport:'⚠️ Voice not supported (Chrome) — type below',mcFile:'⚠️ Need http://localhost for mic — type below',mcBtn:'Ask a Question (Voice)',mcRec:'🔴 Listening… tap to stop',aiBarTxt:'AI thinking…',placeholder:'Or type your question here…',sendTxt:'Send',hintTxt:'e.g. Is it an animal? · Can you eat it? · Is it a person?',retryTxt:'Retry',th:'Correct! 🎉',ti:'You guessed it!',tj:'Answer:',tk:'Questions Used',tl:'Saved',tm:'Play Again',tn:'Game Over! 😢',to:'You used all 20 questions.',tp:'Answer:',tq:'Play Again',cntLbl:'QUESTIONS'},
-  ko:{t0:'스무고개',t1:'AI와 함께하는 단어 맞추기',t2:'게임 시작',t3:'음성 또는 텍스트로 질문',t4:'AI 답변은 영어 음성으로',t5:'다시 듣기 버튼 제공',t6:'20번 안에 맞춰보세요!',t7:'AI가 단어를 고르는 중…',t8:'생각중',t9:'AI가 단어를 정하고 있어요',wordReady:'단어 생각 완료!',wordReadySub:'이제 질문을 시작하세요!',ta:'종료',tb:'정답 보기',tc:'정답:',td:'이 단어를 맞춰보세요!',te:'🔊 음성 재생 중',tf:'⏹ 정지',tg:'예: Is it an animal? · Can you eat it? · Is it famous?',mcCheck:'마이크 확인 중…',mcReady:'✅ 마이크 준비 완료',mcDenied:'🚫 권한 거부 — 텍스트 입력하세요',mcNoDevice:'🎙 마이크 없음 — 텍스트 입력하세요',mcNoSupport:'⚠️ 이 브라우저 미지원 (Chrome 사용)',mcFile:'⚠️ 마이크는 localhost에서만 동작',mcBtn:'🎙 질문하기 (음성)',mcRec:'🔴 듣는 중… 탭하여 중지',aiBarTxt:'AI 답변 중…',placeholder:'또는 여기에 질문을 입력…',sendTxt:'전송',hintTxt:'예: Is it an animal? · Can you eat it? · Is it famous?',retryTxt:'재시도',th:'정답입니다! 🎉',ti:'축하합니다! 맞추셨어요!',tj:'정답:',tk:'사용한 질문',tl:'남은 질문',tm:'다시 하기',tn:'아쉽네요! 😢',to:'20개 질문을 모두 사용했습니다.',tp:'정답:',tq:'다시 하기',cntLbl:'질문 횟수'}
+  en:{t0:'20 Questions',t1:'AI Word Guessing Game',t2:'Start Game',t3:'Voice → AI auto-corrects your question',t4:'Silence detected → auto-submit',t5:'Quick question chips',t6:'AI answers spoken aloud',t7:'AI is choosing a word…',t8:'Thinking',t9:'AI is locking in the secret word',wr:'Word Ready!',wrs:'Start asking your questions!',ta:'End',tb:'Show Answer',tc:'Answer:',td:"What's the secret word?",te:'🔊 Speaking…',clbl:'QUICK QUESTIONS',mc0:'Checking microphone…',mc1:'✅ Microphone ready',mc2:'🚫 Mic denied — type below',mc3:'🎙 No mic — type below',mc4:'⚠️ Voice not supported (Chrome)',mc5:'⚠️ Need http://localhost for mic',mb:'🎙 Ask a Question (Voice)',mr:'🔴 Listening…',ai:'AI thinking…',ph:'Or type your question here…',sd:'Send',rt:'Retry',th:'Correct! 🎉',ti:'You guessed it!',tj:'Answer:',tk:'Questions Used',tl:'Saved',tm:'Play Again',tn:'Game Over! 😢',to:'You used all 20 questions.',tp:'Answer:',tq:'Play Again',cl:'QUESTIONS',ib:'AI understood:'},
+  ko:{t0:'스무고개',t1:'AI와 함께하는 단어 맞추기',t2:'게임 시작',t3:'음성 → AI가 질문 자동 교정',t4:'침묵 감지 → 자동 전송',t5:'자주 쓰는 질문 칩',t6:'AI 답변은 영어 음성으로',t7:'AI가 단어를 고르는 중…',t8:'생각중',t9:'AI가 단어를 정하고 있어요',wr:'단어 생각 완료!',wrs:'이제 질문을 시작하세요!',ta:'종료',tb:'정답 보기',tc:'정답:',td:'이 단어를 맞춰보세요!',te:'🔊 음성 재생 중',clbl:'빠른 질문',mc0:'마이크 확인 중…',mc1:'✅ 마이크 준비 완료',mc2:'🚫 권한 거부 — 텍스트 입력하세요',mc3:'🎙 마이크 없음 — 텍스트 입력하세요',mc4:'⚠️ 이 브라우저 미지원 (Chrome 권장)',mc5:'⚠️ 마이크는 localhost에서만 동작',mb:'🎙 질문하기 (음성)',mr:'🔴 듣는 중…',ai:'AI 답변 중…',ph:'또는 여기에 질문을 입력…',sd:'전송',rt:'재시도',th:'정답입니다! 🎉',ti:'축하합니다! 맞추셨어요!',tj:'정답:',tk:'사용한 질문',tl:'남은 질문',tm:'다시 하기',tn:'아쉽네요! 😢',to:'20개 질문을 모두 사용했습니다.',tp:'정답:',tq:'다시 하기',cl:'질문 횟수',ib:'AI 이해:'}
 };
 const T=k=>(TX[lang]??TX.en)[k]??TX.en[k]??k;
-
-/* ── SCREEN ── */
 const show=id=>{document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on')};
-
-/* ── LANG ── */
 function setLang(l){lang=l;document.getElementById('b-en').classList.toggle('on',l==='en');document.getElementById('b-ko').classList.toggle('on',l==='ko');applyTx()}
 function applyTx(){['t0','t1','t2','t3','t4','t5','t6'].forEach(k=>document.getElementById(k).textContent=T(k))}
-function applyPlayTx(){['ta','tb','tc','td','tg'].forEach(k=>{const el=document.getElementById(k);if(el)el.textContent=T(k)});document.getElementById('cntlbl').textContent=T('cntLbl');document.getElementById('mictxt').textContent=T('mcBtn');document.getElementById('txti').placeholder=T('placeholder');document.getElementById('sendbtn').textContent=T('sendTxt');document.getElementById('aibar').textContent=T('aiBarTxt');document.getElementById('te').textContent=T('te');document.getElementById('tf').textContent=T('tf')}
+function applyPlayTx(){['ta','tb','tc','td'].forEach(k=>{const el=document.getElementById(k);if(el)el.textContent=T(k)});document.getElementById('cntlbl').textContent=T('cl');document.getElementById('mictxt').textContent=T('mb');document.getElementById('txti').placeholder=T('ph');document.getElementById('sendbtn').textContent=T('sd');document.getElementById('aibar').textContent=T('ai');document.getElementById('te').textContent=T('te');document.getElementById('clbl').textContent=T('clbl');buildChips()}
 
-/* ── TTS ── */
+/* TTS */
 (()=>{if(!('speechSynthesis' in window))return;speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()})();
-function getVoice(){const vs=speechSynthesis.getVoices();const want=['Samantha','Karen','Moira','Google US English','Alex','Daniel'];return vs.find(v=>want.some(w=>v.name.includes(w))&&v.lang.startsWith('en'))||vs.find(v=>v.lang.startsWith('en-US'))||vs.find(v=>v.lang.startsWith('en'))||null}
-function tts(text,rate=.9){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=rate;u.pitch=1.05;u.volume=1;const v=getVoice();if(v)u.voice=v;u.onend=u.onerror=()=>{ttsOn=false;ttsIdx=null;updateSpkBar()};ttsOn=true;speechSynthesis.speak(u)}
-function stopTTS(){speechSynthesis.cancel();ttsOn=false;ttsIdx=null;updateSpkBar()}
-function updateSpkBar(){document.getElementById('spkbar').style.display=ttsOn?'flex':'none';document.querySelectorAll('.rp-btn').forEach((b,i)=>{const on=ttsOn&&i===ttsIdx;b.classList.toggle('on',on);b.textContent=on?'⏹':'🔊'})}
-function playAns(text,idx){if(ttsOn&&ttsIdx===idx){stopTTS();return}stopTTS();ttsIdx=idx;ttsOn=true;updateSpkBar();tts(text)}
+function getVoice(){const vs=speechSynthesis.getVoices();const w=['Samantha','Karen','Moira','Google US English','Alex','Daniel'];return vs.find(v=>w.some(n=>v.name.includes(n))&&v.lang.startsWith('en'))||vs.find(v=>v.lang.startsWith('en-US'))||vs.find(v=>v.lang.startsWith('en'))||null}
+function tts(text,rate=.9){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=rate;u.pitch=1.05;u.volume=1;const v=getVoice();if(v)u.voice=v;u.onend=u.onerror=()=>{ttsOn=false;ttsIdx=null;upSpk()};ttsOn=true;speechSynthesis.speak(u)}
+function stopTTS(){speechSynthesis.cancel();ttsOn=false;ttsIdx=null;upSpk()}
+function upSpk(){document.getElementById('spkbar').style.display=ttsOn?'flex':'none';document.querySelectorAll('.rp-btn').forEach((b,i)=>{const on=ttsOn&&i===ttsIdx;b.classList.toggle('on',on);b.textContent=on?'⏹':'🔊'})}
+function playAns(text,idx){if(ttsOn&&ttsIdx===idx){stopTTS();return}stopTTS();ttsIdx=idx;ttsOn=true;upSpk();tts(text)}
 
-/* ── MIC DIAG ── */
+/* MIC DIAG */
 let micSt='checking';
-async function diagMic(){setMicSt('checking');if(location.protocol==='file:'){setMicSt('file');return}if(!window.SpeechRecognition&&!window.webkitSpeechRecognition){setMicSt('no_support');return}if(!navigator.mediaDevices?.getUserMedia){setMicSt('no_support');return}try{const s=await navigator.mediaDevices.getUserMedia({audio:true});s.getTracks().forEach(t=>t.stop());setMicSt('ready')}catch(e){const n=e.name??'';setMicSt(n.includes('NotAllowed')||n.includes('PermissionDenied')?'denied':n.includes('NotFound')?'no_device':'no_support')}}
-function setMicSt(s){micSt=s;const bar=document.getElementById('stbar');const btn=document.getElementById('micbtn');const M={checking:['#F2F2F7','#8E8E93','mcCheck'],ready:['#E8F5E9','#2E7D32','mcReady'],denied:['#FFF0F0','#FF3B30','mcDenied'],no_device:['#FFF0F0','#FF3B30','mcNoDevice'],no_support:['#FFF9E6','#FF9500','mcNoSupport'],file:['#FFF9E6','#FF9500','mcFile']};const[bg,col,key]=M[s]||M.checking;bar.style.background=bg;bar.style.color=col;bar.textContent=T(key);btn.disabled=['no_support','file'].includes(s)}
+async function diagMic(){setMS('checking');if(location.protocol==='file:'){setMS('file');return}if(!window.SpeechRecognition&&!window.webkitSpeechRecognition){setMS('ns');return}if(!navigator.mediaDevices?.getUserMedia){setMS('ns');return}try{const s=await navigator.mediaDevices.getUserMedia({audio:true});s.getTracks().forEach(t=>t.stop());setMS('ok')}catch(e){const n=e.name??'';setMS(n.includes('NotAllowed')||n.includes('PermissionDenied')?'denied':n.includes('NotFound')?'nd':'ns')}}
+function setMS(s){micSt=s;const bar=document.getElementById('stbar');const btn=document.getElementById('micbtn');const M={checking:['#F2F2F7','#8E8E93','mc0'],ok:['#E8F5E9','#2E7D32','mc1'],denied:['#FFF0F0','#FF3B30','mc2'],nd:['#FFF0F0','#FF3B30','mc3'],ns:['#FFF9E6','#FF9500','mc4'],file:['#FFF9E6','#FF9500','mc5']};const[bg,col,key]=M[s]||M.checking;bar.style.background=bg;bar.style.color=col;bar.textContent=T(key);btn.disabled=['ns','file'].includes(s)}
 
-/* ── STT SINGLETON STATE MACHINE ── */
-function toggleMic(){if(['no_support','file'].includes(micSt)||busy)return;if(sttSt==='listening'||sttSt==='starting'){sttSt='stopping';try{rec&&rec.stop()}catch(e){}return}if(sttSt!=='idle')return;if(ttsOn){stopTTS();setTimeout(_startSTT,200)}else _startSTT()}
-function _startSTT(){if(sttSt!=='idle')return;sttSt='starting';liveStr='';if(rec){rec.onstart=rec.onresult=rec.onerror=rec.onend=null;try{rec.abort()}catch(e){}rec=null}const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){sttSt='idle';setMicSt('no_support');return}const r=new SR();r.lang=lang==='ko'?'ko-KR':'en-US';r.continuous=false;r.interimResults=true;r.maxAlternatives=1;r.onstart=()=>{sttSt='listening';document.getElementById('micbtn').classList.add('rec');document.getElementById('mictxt').textContent=T('mcRec');document.getElementById('micicon').textContent='⏹'};r.onresult=e=>{let f='',x='';for(let i=e.resultIndex;i<e.results.length;i++){if(e.results[i].isFinal)f+=e.results[i][0].transcript;else x+=e.results[i][0].transcript}liveStr=f||x;const lb=document.getElementById('livebox');document.getElementById('livetxt').textContent=liveStr;lb.style.display=liveStr?'block':'none'};r.onerror=e=>{if(e.error==='not-allowed')setMicSt('denied')};r.onend=()=>{sttSt='idle';rec=null;_resetMicBtn();const cap=liveStr.trim();document.getElementById('livebox').style.display='none';document.getElementById('livetxt').textContent='';liveStr='';if(cap&&!busy&&qcount<20)setTimeout(()=>handleQ(cap),150)};rec=r;try{r.start()}catch(e){sttSt='idle';rec=null;_resetMicBtn()}}
-function _resetMicBtn(){document.getElementById('micbtn').classList.remove('rec');document.getElementById('mictxt').textContent=T('mcBtn');document.getElementById('micicon').textContent='🎙'}
+/* STT — continuous=true + 침묵 감지 */
+function toggleMic(){
+  if(['ns','file'].includes(micSt)||busy)return;
+  if(sttSt==='listening'||sttSt==='starting'){clearST();sttSt='stopping';try{rec&&rec.stop()}catch(e){}return}
+  if(sttSt!=='idle')return;
+  if(ttsOn){stopTTS();setTimeout(_go,220)}else _go();
+}
+function _go(){
+  if(sttSt!=='idle')return;
+  sttSt='starting';liveStr='';editMode=false;
+  if(rec){rec.onstart=rec.onresult=rec.onerror=rec.onend=null;try{rec.abort()}catch(e){}rec=null}
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){sttSt='idle';setMS('ns');return}
+  const r=new SR();
+  r.lang=lang==='ko'?'ko-KR':'en-US';
+  r.continuous=true;        // ✅ 연속 인식: 앞뒤 잘림 방지 핵심
+  r.interimResults=true;
+  r.maxAlternatives=1;
+  r.onstart=()=>{sttSt='listening';document.getElementById('micbtn').classList.add('rec');document.getElementById('mictxt').textContent=T('mr');document.getElementById('micicon').textContent='⏹';showLB(true);document.getElementById('livetxt').textContent='Say your question…';document.getElementById('ltimer').textContent=''};
+  r.onresult=e=>{
+    let fin='',tmp='';
+    for(let i=e.resultIndex;i<e.results.length;i++){if(e.results[i].isFinal)fin+=e.results[i][0].transcript+' ';else tmp+=e.results[i][0].transcript}
+    if(fin)liveStr=(liveStr+fin).trim();
+    const disp=(liveStr+(tmp?' '+tmp:'')).trim();
+    document.getElementById('livetxt').textContent=disp||'Say your question…';
+    resetST(); // 새 말 감지 → 침묵 타이머 리셋
+  };
+  r.onerror=e=>{if(e.error==='not-allowed')setMS('denied')};
+  r.onend=()=>{
+    if(sttSt==='listening'){clearST();_done()} // 브라우저 자체 종료
+    else{sttSt='idle';rec=null;_rmb();showLB(false)}
+  };
+  rec=r;try{r.start()}catch(e){sttSt='idle';rec=null;_rmb();showLB(false)}
+}
+function resetST(){
+  clearST();
+  if(!liveStr.trim())return; // 아직 인식된 말 없으면 타이머 시작 안 함
+  silenceSec=SILENCE;
+  document.getElementById('ltimer').textContent=`⏱${silenceSec.toFixed(1)}s`;
+  silenceTmr=setInterval(()=>{
+    silenceSec-=.1;
+    if(silenceSec<=0){clearST();sttSt='stopping';try{rec&&rec.stop()}catch(e){}setTimeout(_done,80)}
+    else document.getElementById('ltimer').textContent=`⏱${silenceSec.toFixed(1)}s`;
+  },100);
+}
+function clearST(){if(silenceTmr){clearInterval(silenceTmr);silenceTmr=null}document.getElementById('ltimer').textContent=''}
+function _done(){sttSt='idle';rec=null;_rmb();const cap=liveStr.trim();liveStr='';if(cap&&!editMode){showLB(false);if(!busy&&qcount<20)setTimeout(()=>handleQ(cap),100)}}
+function _rmb(){document.getElementById('micbtn').classList.remove('rec');document.getElementById('mictxt').textContent=T('mb');document.getElementById('micicon').textContent='🎙'}
+function showLB(on){const lb=document.getElementById('livebox');lb.style.display=on?'block':'none';if(!on){document.getElementById('liveinp').style.display='none';document.getElementById('livesub').style.display='none';document.getElementById('editbtn').style.display='block';document.getElementById('livetxt').style.display='block';editMode=false}}
+function enterEdit(){editMode=true;clearST();if(sttSt==='listening'){try{rec&&rec.stop()}catch(e){}}const cur=document.getElementById('livetxt').textContent;const inp=document.getElementById('liveinp');inp.value=cur==='Say your question…'?'':cur;inp.style.display='block';document.getElementById('livesub').style.display='block';document.getElementById('editbtn').style.display='none';document.getElementById('livetxt').style.display='none';inp.focus()}
+function submitEdit(){const v=document.getElementById('liveinp').value.trim();showLB(false);if(v&&!busy&&qcount<20)handleQ(v)}
 
-/* ── DIAL ── */
+/* DIAL */
 const DC=['???','◆◆◆','▲▲▲','●●●','■■■','★★★','◇◇◇'];
 function runDial(){const tk=document.getElementById('dtk');let f=0;dialTmr=setInterval(()=>{f++;tk.innerHTML='';for(let i=0;i<5;i++){const d=document.createElement('div');const m=i===2;d.className='dial-item';d.style.cssText=`font-size:${m?'30px':'18px'};color:${m?'var(--blue)':'var(--navy)'};opacity:${m?1:.2+i*.08};letter-spacing:6px`;d.textContent=DC[(f+i)%DC.length];tk.appendChild(d)}},80)}
 
-/* ── COUNTER ── */
-function updateCnt(){const p=qcount/20;const col=p<.5?'var(--green)':p<.75?'var(--orange)':'var(--red)';document.getElementById('cntnum').innerHTML=`${qcount}<span style="font-size:12px;color:var(--gray);font-weight:700">/20</span>`;document.getElementById('cntnum').style.color=col}
+/* COUNTER */
+function updCnt(){const p=qcount/20;const col=p<.5?'var(--green)':p<.75?'var(--orange)':'var(--red)';document.getElementById('cntnum').innerHTML=`${qcount}<span style="font-size:12px;color:var(--gray);font-weight:700">/20</span>`;document.getElementById('cntnum').style.color=col}
 
-/* ── GAME START ── */
-async function startGame(){show('sd');document.getElementById('topbar').style.display='none';document.getElementById('t7').textContent=T('t7');runDial();await sleep(3200);clearInterval(dialTmr);show('st');document.getElementById('t8').innerHTML=T('t8')+'<span id="dots">...</span>';document.getElementById('t9').textContent=T('t9');let d=0;const dtmr=setInterval(()=>{d=(d+1)%4;const el=document.getElementById('dots');if(el)el.textContent='.'.repeat(d+1)},400);try{const data=await post('/api/get-word',{lang});word=data.word;cat=data.category}catch(e){clearInterval(dtmr);alert('단어 생성 실패: '+e.message);show('ss');return}clearInterval(dtmr);document.getElementById('st').innerHTML=`<div style="font-size:72px;margin-bottom:12px">✅</div><h2 style="font-size:26px;font-weight:900;color:var(--navy)">${T('wordReady')}</h2><p style="color:var(--green);font-weight:700;font-size:16px;margin-top:8px">${T('wordReadySub')}</p>`;tts('Word ready! Start asking your questions!',1.0);await sleep(2500);show('sp');document.getElementById('topbar').style.display='flex';applyPlayTx();updateCnt();diagMic()}
+/* GAME */
+async function startGame(){show('sd');document.getElementById('topbar').style.display='none';document.getElementById('t7').textContent=T('t7');runDial();await sleep(3200);clearInterval(dialTmr);show('st');document.getElementById('t8').innerHTML=T('t8')+'<span id="dots">...</span>';document.getElementById('t9').textContent=T('t9');let d=0;const dt=setInterval(()=>{d=(d+1)%4;const el=document.getElementById('dots');if(el)el.textContent='.'.repeat(d+1)},400);try{const data=await post('/api/get-word',{lang});word=data.word;cat=data.category}catch(e){clearInterval(dt);alert('단어 생성 실패: '+e.message);show('ss');return}clearInterval(dt);document.getElementById('st').innerHTML=`<div style="font-size:72px;margin-bottom:12px">✅</div><h2 style="font-size:26px;font-weight:900;color:var(--navy)">${T('wr')}</h2><p style="color:var(--green);font-weight:700;font-size:16px;margin-top:8px">${T('wrs')}</p>`;tts('Word ready! Start asking your questions!',1.0);await sleep(2500);show('sp');document.getElementById('topbar').style.display='flex';applyPlayTx();updCnt();diagMic()}
 
-/* ── QUESTION ── */
-async function handleQ(question){if(!question.trim()||busy||qcount>=20)return;busy=true;lockInp(true);qcount++;updateCnt();const idx=qa.length;qa.push({q:question,a:null,err:false,retryQ:null});renderQA();showQAPanel();document.getElementById('aibar').style.display='block';try{const data=await post('/api/ask',{secretWord:word,secretCategory:cat,question});qa[idx].a=data.answer;renderQA();setTimeout(()=>{ttsIdx=idx;ttsOn=true;updateSpkBar();tts(data.answer)},150);if(data.type==='guess'&&data.correct){await sleep(700);tts('Correct! Congratulations! You guessed it!');await sleep(300);showWin();return}}catch(e){qcount--;updateCnt();qa[idx].a='⚠️ '+e.message;qa[idx].err=true;qa[idx].retryQ=question;renderQA()}document.getElementById('aibar').style.display='none';busy=false;lockInp(false);if(qcount>=20&&!qa[idx]?.err){await sleep(1200);tts('Game over. The answer was '+word+'.');await sleep(300);showLose()}}
+/* QUESTION */
+async function handleQ(question){
+  if(!question.trim()||busy||qcount>=20)return;
+  busy=true;lockInp(true);qcount++;updCnt();
+  const idx=qa.length;
+  qa.push({rawQ:question,interpQ:null,a:null,err:false,retryQ:null});
+  renderQA();showQAP();
+  document.getElementById('aibar').style.display='block';
+  const history=qa.slice(0,idx).filter(h=>h.a&&!h.err).slice(-6).map(h=>({q:h.interpQ||h.rawQ,a:h.a}));
+  try{
+    const data=await post('/api/ask',{secretWord:word,secretCategory:cat,question,history});
+    qa[idx].interpQ=data.interpreted||question;
+    qa[idx].a=data.answer;
+    renderQA();
+    setTimeout(()=>{ttsIdx=idx;ttsOn=true;upSpk();tts(data.answer)},150);
+    if(data.type==='guess'&&data.correct){await sleep(700);tts('Correct! Congratulations! You guessed it!');await sleep(300);showWin();return}
+  }catch(e){
+    qcount--;updCnt();qa[idx].a='⚠️ '+e.message;qa[idx].err=true;qa[idx].retryQ=question;renderQA();
+  }
+  document.getElementById('aibar').style.display='none';busy=false;lockInp(false);
+  if(qcount>=20&&!qa[idx]?.err){await sleep(1200);tts('Game over. The answer was '+word+'.');await sleep(300);showLose()}
+}
 function retryQ(q){qa=qa.filter(h=>!(h.err&&h.retryQ===q));renderQA();handleQ(q)}
 function sendText(){const v=document.getElementById('txti').value.trim();if(!v)return;document.getElementById('txti').value='';handleQ(v)}
 
-/* ── RENDER QA ── */
-function renderQA(){const list=document.getElementById('qalist');list.innerHTML='';qa.forEach((item,i)=>{const pair=document.createElement('div');pair.className='qa-pair';const qb=document.createElement('div');qb.className='q-bub';qb.innerHTML=`<span class="q-badge">Q${i+1}</span><span class="q-txt">${esc(item.q)}</span>`;pair.appendChild(qb);if(item.a!=null){if(item.err){const ae=document.createElement('div');ae.className='a-bub a-err';ae.style.marginLeft='14px';ae.textContent=item.a;pair.appendChild(ae);if(item.retryQ){const rb=document.createElement('button');rb.className='retry-btn';rb.textContent=T('retryTxt');const q2=item.retryQ;rb.onclick=()=>retryQ(q2);pair.appendChild(rb)}}else{const ar=document.createElement('div');ar.className='a-row';const ab=document.createElement('div');ab.className='a-bub a-ok';ab.textContent=item.a;const rp=document.createElement('button');rp.className='rp-btn'+(ttsOn&&ttsIdx===i?' on':'');rp.textContent=(ttsOn&&ttsIdx===i)?'⏹':'🔊';rp.title='Replay';const ans=item.a,ii=i;rp.onclick=()=>playAns(ans,ii);ar.appendChild(ab);ar.appendChild(rp);pair.appendChild(ar)}}else{const al=document.createElement('div');al.className='a-load';al.textContent='⏳ '+T('aiBarTxt');pair.appendChild(al)}list.appendChild(pair)});list.scrollTop=list.scrollHeight;document.getElementById('qatitle').textContent=`💬 ${lang==='ko'?'질문 기록':'Q&A History'} (${qa.length})`}
+/* RENDER QA */
+function renderQA(){
+  const list=document.getElementById('qalist');list.innerHTML='';
+  qa.forEach((item,i)=>{
+    const pair=document.createElement('div');pair.className='qa-pair';
+    const qb=document.createElement('div');qb.className='q-bub';
+    const differs=item.interpQ&&item.interpQ.toLowerCase().trim()!==item.rawQ.toLowerCase().trim();
+    qb.innerHTML=`<span class="q-badge">Q${i+1}</span><div class="q-main">${differs?`<span class="q-raw">🎙 "${esc(item.rawQ)}"</span>`:''}<span class="q-txt">${esc(item.interpQ||item.rawQ)}</span>${differs?`<span class="q-interp-badge">${T('ib')}</span>`:''}</div>`;
+    pair.appendChild(qb);
+    if(item.a!=null){
+      if(item.err){const ae=document.createElement('div');ae.className='a-bub a-err';ae.style.marginLeft='14px';ae.textContent=item.a;pair.appendChild(ae);if(item.retryQ){const rb=document.createElement('button');rb.className='retry-btn';rb.textContent=T('rt');const q2=item.retryQ;rb.onclick=()=>retryQ(q2);pair.appendChild(rb)}}
+      else{const ar=document.createElement('div');ar.className='a-row';const ab=document.createElement('div');ab.className='a-bub a-ok';ab.textContent=item.a;const rp=document.createElement('button');rp.className='rp-btn'+(ttsOn&&ttsIdx===i?' on':'');rp.textContent=(ttsOn&&ttsIdx===i)?'⏹':'🔊';rp.title='Replay';const ans=item.a,ii=i;rp.onclick=()=>playAns(ans,ii);ar.appendChild(ab);ar.appendChild(rp);pair.appendChild(ar)}
+    }else{const al=document.createElement('div');al.className='a-load';al.textContent='⏳ '+T('ai');pair.appendChild(al)}
+    list.appendChild(pair);
+  });
+  list.scrollTop=list.scrollHeight;
+  document.getElementById('qatitle').textContent=`💬 ${lang==='ko'?'질문 기록':'Q&A'} (${qa.length})`;
+}
 
-/* ── UI ── */
-function lockInp(on){document.getElementById('txti').disabled=on;document.getElementById('sendbtn').disabled=on;if(on&&sttSt==='listening'){sttSt='stopping';try{rec&&rec.stop()}catch(e){}}}
-function showQAPanel(){document.getElementById('qap').style.display=qa.length>0?'block':'none'}
+/* UI */
+function lockInp(on){document.getElementById('txti').disabled=on;document.getElementById('sendbtn').disabled=on;if(on&&sttSt==='listening'){clearST();sttSt='stopping';try{rec&&rec.stop()}catch(e){}}}
+function showQAP(){document.getElementById('qap').style.display=qa.length>0?'block':'none'}
 function toggleQA(){qaOpen=!qaOpen;document.getElementById('qalist').style.display=qaOpen?'block':'none';document.getElementById('qaicon').textContent=qaOpen?'▲':'▼'}
 function toggleReveal(){revealOn=!revealOn;document.getElementById('ansrev').style.display=revealOn?'flex':'none';document.getElementById('answord').textContent=revealOn?word:''}
 function showWin(){show('sw');document.getElementById('topbar').style.display='none';['th','ti','tj','tk','tl','tm'].forEach(k=>{const el=document.getElementById(k);if(el)el.textContent=T(k)});document.getElementById('winword').textContent=word;document.getElementById('stused').textContent=qcount;document.getElementById('stsaved').textContent=20-qcount}
 function showLose(){show('sl');document.getElementById('topbar').style.display='none';['tn','to','tp','tq'].forEach(k=>{const el=document.getElementById(k);if(el)el.textContent=T(k)});document.getElementById('loseword').textContent=word}
 function confirmEnd(){if(confirm(lang==='ko'?'게임을 종료할까요?':'End the game?'))resetGame()}
-function resetGame(){stopTTS();if(rec){try{rec.abort()}catch(e){}}rec=null;sttSt='idle';liveStr='';clearInterval(dialTmr);word='';cat='';qcount=0;qa=[];busy=false;revealOn=false;qaOpen=true;ttsOn=false;ttsIdx=null;document.getElementById('topbar').style.display='none';document.getElementById('qap').style.display='none';document.getElementById('qalist').innerHTML='';document.getElementById('ansrev').style.display='none';document.getElementById('spkbar').style.display='none';document.getElementById('livebox').style.display='none';document.getElementById('aibar').style.display='none';document.getElementById('txti').value='';document.getElementById('st').innerHTML=`<div style="font-size:72px">🤔</div><h2 style="font-size:28px;font-weight:900;color:var(--navy)" id="t8">Thinking<span id="dots">...</span></h2><p style="color:var(--gray);font-weight:600;font-size:14px" id="t9">AI is locking in the secret word</p>`;_resetMicBtn();show('ss');applyTx()}
+function resetGame(){stopTTS();clearST();if(rec){try{rec.abort()}catch(e){}}rec=null;sttSt='idle';liveStr='';editMode=false;clearInterval(dialTmr);word='';cat='';qcount=0;qa=[];busy=false;revealOn=false;qaOpen=true;ttsOn=false;ttsIdx=null;document.getElementById('topbar').style.display='none';document.getElementById('qap').style.display='none';document.getElementById('qalist').innerHTML='';document.getElementById('ansrev').style.display='none';document.getElementById('spkbar').style.display='none';showLB(false);document.getElementById('aibar').style.display='none';document.getElementById('txti').value='';document.getElementById('st').innerHTML=`<div style="font-size:72px">🤔</div><h2 style="font-size:28px;font-weight:900;color:var(--navy)" id="t8">Thinking<span id="dots">...</span></h2><p style="color:var(--gray);font-weight:600;font-size:14px" id="t9">AI is locking in the secret word</p>`;_rmb();show('ss');applyTx()}
 
-/* ── API ── */
 async function post(path,body){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await r.json();if(!r.ok)throw new Error(data.error||`Server error ${r.status}`);return data}
-
-/* ── UTILS ── */
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 window.addEventListener('beforeunload',()=>{if(rec){try{rec.abort()}catch(e){}}speechSynthesis.cancel()});
